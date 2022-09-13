@@ -3,11 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdegraeu <mdegraeu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ltrinchi <ltrinchi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 13:26:43 by mdegraeu          #+#    #+#             */
-/*   Updated: 2022/09/13 13:26:54 by mdegraeu         ###   ########.fr       */
+/*   Updated: 2022/09/13 15:59:36 by ltrinchi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inclds/cube.h"
+
+int	main(void)
+{
+	puts("Hello world!");
+	return (0);
+}
