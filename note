@@ -1,0 +1,22 @@
+A et D vont changer la valeur de l'angle dans le cercle de rotation du joueur
+
+W et S vont avancer sur l'axe defini par le centre du cercle (le joueur) et l'angle actuel (le rayon du cercle avec la valeur de rotation defini a l'instant T)
+
+Champ de vision du joueur entre (66 et 90 degres dont le centre est l'angle de rotation du joueur)
+
+pour calculer la distance entre le joueur et un mur il faut lancer un rayon et checker si le rayon croise un mur quand il croise une valeur entiere de X ou Y et pas checker sur des decoupes regulieres du segment.
+
+bombarder notre FOV de rayons (joueurs to pixel) pour avoir la distance du mur pour chaque rayon qu'on envoie
+
+
+METHODE DE TRAVAIL:
+	-creer une map 2D avec un point pour representer le joueur et des blocs pour les murs.
+	-envoyer un segment dans la direction de l angle de vue du joueur et pouvoir bouger cet angle avec A et D
+	-faire avancer et reculer le joueur sur ce segment avec W et S
+	-faire le contact entre le segment et le bloc mur si collision entre les deux
+	-ouvrir le fov et bombarder de segment similaires au premier (garder le segment central pour avancer et reculer)
+	
+	-avoir une seconde fenetre qui suit ces regles mais en vue 3D FPS
+	-creer la perspective (consigne a detailler)
+	-degrader les couleurs pour creer une profondeur
+	-texturer
