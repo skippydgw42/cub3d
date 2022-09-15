@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cube.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ltrinchi <ltrinchi@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: mdegraeu <mdegraeu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 12:20:09 by mdegraeu          #+#    #+#             */
-/*   Updated: 2022/09/15 11:36:04 by ltrinchi         ###   ########lyon.fr   */
+/*   Updated: 2022/09/15 17:50:13 by mdegraeu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define CUBE_H
 
 # include "../mlib/mlx.h"
+# include "../libft/srcs/libft.h"
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdio.h>
@@ -60,6 +61,18 @@ typedef struct s_mlx
 	t_data_img_mlx	img;
 }	t_mlx;
 
+typedef struct	s_map
+{
+	char	*map_name;
+	char	**map;
+	char	*no_texture;
+	char	*so_texture;
+	char	*we_texture;
+	char	*ea_texture;
+	int		*floor;
+	int		*ceiling;
+}	t_map;
+
 // NOTE A supprimer (pour des tests)
 void	ft_draw_square(t_mlx *mlx);
 void	ft_draw_lines(t_mlx *mlx);
@@ -70,5 +83,9 @@ int		ft_close_window(void *param);
 int		ft_keyboard(int keycode, t_mlx *mlx);
 void	my_mlx_pixel_put(t_data_img_mlx *data, int x, int y, int color);
 void	my_mlx_clear_window(t_mlx *mlx);
+
+//==============PARSING=============//
+char	*ft_getflat(int fd);
+t_map	*ft_init_map(int fd);
 
 #endif
