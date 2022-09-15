@@ -6,14 +6,15 @@
 #    By: ltrinchi <ltrinchi@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/13 15:44:05 by ltrinchi          #+#    #+#              #
-#    Updated: 2022/09/13 16:12:13 by ltrinchi         ###   ########lyon.fr    #
+#    Updated: 2022/09/14 13:50:13 by ltrinchi         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = cub3D
 
 SRCS_WITHOUT_PATH = \
-					main.c
+					main.c \
+					mlx_utils.c
 
 OBJS_SRCS_WITHOUT_PATH = $(SRCS_WITHOUT_PATH:.c=.o)
 
