@@ -6,7 +6,7 @@
 /*   By: ltrinchi <ltrinchi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 13:38:42 by ltrinchi          #+#    #+#             */
-/*   Updated: 2022/09/15 11:33:51 by ltrinchi         ###   ########lyon.fr   */
+/*   Updated: 2022/09/15 16:36:05by ltrinchi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,8 @@ int		ft_close_window(void *param)
 void	my_mlx_pixel_put(t_data_img_mlx *data, int x, int y, int color)
 {
 	char	*dst;
-
+	if (x > WIDTH_WINDOW || y > HEIGHT_WINDOW)
+	return ;
 	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
 	*(unsigned int*)dst = color;
 }
@@ -83,14 +84,16 @@ int		ft_keyboard(int keycode, t_mlx *mlx)
 		{
 			mlx->angle = 2.0 * PI;
 		}
-		mlx->angle -= 0.1;
-		mlx->pdx = cos(mlx->angle);
-		mlx->pdy = sin(mlx->angle);
+		mlx->angle -= PI / 180.0;
+		mlx->dx = cos(mlx->angle);
+		mlx->dy = sin(mlx->angle);
 	}
 	else if (keycode == S || keycode == DOWN)
 	{
-		mlx->x -= mlx->pdx * 5.0;
-		mlx->y -= mlx->pdy * 5.0;
+		mlx->dx = cos(mlx->angle);
+		mlx->dy = sin(mlx->angle);
+		mlx->x -= mlx->dx * 5.0;
+		mlx->y -= mlx->dy * 5.0;
 	}
 	else if (keycode == D || keycode == RIGHT)
 	{
@@ -98,17 +101,21 @@ int		ft_keyboard(int keycode, t_mlx *mlx)
 		{
 			mlx->angle = 0;
 		}
-		mlx->angle += 0.1;
-		mlx->pdx = cos(mlx->angle);
-		mlx->pdy = sin(mlx->angle);
+		mlx->angle += PI / 180.0;
+		mlx->dx = cos(mlx->angle);
+		mlx->dy = sin(mlx->angle);
 	}
 	else if (keycode == W || keycode == UP)
 	{
-		mlx->x += mlx->pdx * 5.0;
-		mlx->y += mlx->pdy * 5.0;
+		mlx->dx = cos(mlx->angle);
+		mlx->dy = sin(mlx->angle);
+		mlx->x += mlx->dx * 5.0;
+		mlx->y += mlx->dy * 5.0;
 	}
-	ft_draw_square(mlx);
+	ft_draw_map(mlx);
+	ft_draw_grid(mlx);
 	ft_draw_lines(mlx);
+	// ft_draw_square(mlx);
 	mlx_put_image_to_window(mlx->mlx, mlx->window, mlx->img.img, 0, 0);
 	return (EXIT_SUCCESS);
 }
@@ -129,4 +136,33 @@ void	my_mlx_clear_window(t_mlx *mlx)
 		x++;
 	}
 	mlx_put_image_to_window(mlx->mlx, mlx->window, mlx->img.img, 0, 0);
+}
+
+void	ft_draw_grid(t_mlx *mlx)
+{
+	int	x;
+	int	y;
+
+	x = 0;
+	while (x < WIDTH_WINDOW)
+	{
+		y = 0;
+		while (y < HEIGHT_WINDOW)
+		{
+			my_mlx_pixel_put(&mlx->img, x, y, ft_rgb(125,125,125));
+			y++;
+		}
+		x+= SIZE_CUBE;
+	}
+	x = 0;
+	while (x < WIDTH_WINDOW)
+	{
+		y = 0;
+		while (y < HEIGHT_WINDOW)
+		{
+			my_mlx_pixel_put(&mlx->img, x, y, ft_rgb(125,125,125));
+			y+= SIZE_CUBE;
+		}
+		x++;
+	}
 }
