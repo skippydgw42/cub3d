@@ -6,7 +6,7 @@
 /*   By: mdegraeu <mdegraeu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 13:26:43 by mdegraeu          #+#    #+#             */
-/*   Updated: 2022/09/20 11:58:30 by mdegraeu         ###   ########.fr       */
+/*   Updated: 2022/09/20 12:02:27 by mdegraeu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -328,8 +328,8 @@ int main(void)
 
 	// NOTE	Orientation de la vue
 	mlx.angle = 3;
-	mlx.pdx = cos(0);
-	mlx.pdy = sin(0);
+	mlx.dx = cos(0);
+	mlx.dy = sin(0);
 
 	// NOTE Mlx de merde
 	mlx.mlx = mlx_init();
