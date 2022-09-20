@@ -6,7 +6,7 @@
 /*   By: mdegraeu <mdegraeu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 12:20:09 by mdegraeu          #+#    #+#             */
-/*   Updated: 2022/09/15 17:50:13 by mdegraeu         ###   ########.fr       */
+/*   Updated: 2022/09/16 13:59:59 by mdegraeu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@
 
 // Config
 # define PI	3.141593
-# define WIDTH_WINDOW 540
-# define HEIGHT_WINDOW 480
+# define WIDTH_WINDOW 1920
+# define HEIGHT_WINDOW 1080
 # define NAME_WINDOW "42_cub3D"
 
 // Keyboard

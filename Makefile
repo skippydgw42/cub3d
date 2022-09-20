@@ -6,15 +6,15 @@
 #    By: mdegraeu <mdegraeu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/13 15:44:05 by ltrinchi          #+#    #+#              #
-#    Updated: 2022/09/15 17:49:06 by mdegraeu         ###   ########.fr        #
+#    Updated: 2022/09/20 11:42:08 by mdegraeu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = cub3D
 
 SRCS_WITHOUT_PATH = \
-					main.c \
-					mlx_utils.c
+					mlx_utils.c \
+					main.c 
 
 PARSING_WITHOUT_PATH = \
 					parsing.c
