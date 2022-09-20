@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mdegraeu <mdegraeu@student.42.fr>          +#+  +:+       +#+         #
+#    By: ltrinchi <ltrinchi@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/13 15:44:05 by ltrinchi          #+#    #+#              #
-#    Updated: 2022/09/15 17:49:06 by mdegraeu         ###   ########.fr        #
+#    Updated: 2022/09/16 16:45:55 by ltrinchi         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,34 +16,25 @@ SRCS_WITHOUT_PATH = \
 					main.c \
 					mlx_utils.c
 
-PARSING_WITHOUT_PATH = \
-					parsing.c
-
 OBJS_SRCS_WITHOUT_PATH = $(SRCS_WITHOUT_PATH:.c=.o)
-OBJS_PARSING_WITHOUT_PATH = $(PARSING_WITHOUT_PATH:.c=.o)
 
 HEADER_WITHOUT_PATH = cube.h
 
 PATH_TO_SRCS = ./srcs/
-PATH_TO_PARSING = ./parsing/
 PATH_TO_OBJS = ./objs/
 PATH_TO_HEADER = ./inclds/
 
 SRCS = $(addprefix $(PATH_TO_SRCS), $(SRCS_WITHOUT_PATH))
-PARSING = $(addprefix $(PATH_TO_PARSING), $(PARSING_WITHOUT_PATH))
 
 OBJS_SRCS = $(addprefix $(PATH_TO_OBJS), $(OBJS_SRCS_WITHOUT_PATH))
-OBJS_PARSING = $(addprefix $(PATH_TO_OBJS), $(OBJS_PARSING_WITHOUT_PATH))
 
-OBJS = \
-		$(OBJS_SRCS) \
-		$(OBJS_PARSING)
+OBJS = $(OBJS_SRCS)
 
 HEADER = $(addprefix $(PATH_TO_HEADER), $(HEADER_WITHOUT_PATH))
 
 	######### COMMANDS ###########
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 CFLAGS_MLX = -framework OpenGL -framework AppKit
 RM = rm -rf
 	################################
@@ -85,10 +76,6 @@ $(LIBFT_A): rsc
 $(LIBMLX_A): rsc
 
 $(OBJS_SRCS):$(PATH_TO_OBJS)%.o	: $(PATH_TO_SRCS)%.c Makefile $(HEADER) $(LIBFT_A) $(LIBMLX_A)
-	printf "\033[2K\r$(YELLOW)⏳ Compiling:$(WHITE) $< 🤞\n"
-	$(CC) $(CFLAGS) -c $< -o $@ 
-
-$(OBJS_PARSING):$(PATH_TO_OBJS)%.o	: $(PATH_TO_PARSING)%.c Makefile $(HEADER) $(LIBFT_A) $(LIBMLX_A)
 	printf "\033[2K\r$(YELLOW)⏳ Compiling:$(WHITE) $< 🤞\n"
 	$(CC) $(CFLAGS) -c $< -o $@ 
 
