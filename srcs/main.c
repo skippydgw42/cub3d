@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdegraeu <mdegraeu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ltrinchi <ltrinchi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 13:26:43 by mdegraeu          #+#    #+#             */
-/*   Updated: 2022/09/20 12:02:27 by mdegraeu         ###   ########.fr       */
+/*   Updated: 2022/09/15 17:50:48nchi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,19 +24,19 @@ int map[MAP_HEIGHT][MAP_WIDHT] = {
 	{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
 	{0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0},
 	{0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0},
-	{0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0},
-	{1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0},
-	{0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0},
-	{0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0},
 	{0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0},
-	{0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0},
-	{0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0},
+	{1, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0},
+	{0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0},
+	{0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0},
+	{0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0},
+	{0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0},
+	{0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0},
 	{0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0},
 	{0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
 	{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}};
 
 // NOTE Dessiner un bloc de la map
-void ft_draw_block(t_mlx *mlx, int pos_x, int pos_y)
+void ft_draw_block(t_mlx *mlx, int pos_x, int pos_y, int color)
 {
 	int x;
 	int y;
@@ -47,7 +47,7 @@ void ft_draw_block(t_mlx *mlx, int pos_x, int pos_y)
 		y = 0;
 		while (y < SIZE_CUBE - 1)
 		{
-			my_mlx_pixel_put(&mlx->img, x + pos_x, y + pos_y, ft_rgb(255, 255, 255));
+			my_mlx_pixel_put(&mlx->img, x + pos_x, y + pos_y, color);
 			y++;
 		}
 		x++;
@@ -67,7 +67,7 @@ void ft_draw_map(t_mlx *mlx)
 		{
 			if (map[i][j] == 1)
 			{
-				ft_draw_block(mlx, j * SIZE_CUBE, i * SIZE_CUBE);
+				ft_draw_block(mlx, j * SIZE_CUBE, i * SIZE_CUBE, 0xffffff);
 			}
 			j++;
 		}
@@ -88,13 +88,30 @@ double ft_find_y(double hypo, double angle)
 	return (sin(angle) * hypo);
 }
 
+#define VER 1
 // NOTE Checker si j'ai touche un mur
-int ft_check_wall(int x, int y)
+int ft_check_wall(int x, int y, t_mlx *mlx, int opt)
 {
 	// NOTE A permit de regler le probleme d'affichage dans certain cas mais c'est un peu de la merde
 	printf("Wall: x=%d y=%d\n", x / 32, y / 32);
 	if (y / 32 > MAP_HEIGHT || x / 32 > MAP_WIDHT || y < 0 || x < 0)
 		return (0);
+	// return (map[y / 32][x / 32]);
+	if (map[y / 32][x / 32])
+	{
+		if (opt == VER)
+			ft_draw_block(mlx, (x / 32) * 32, (y / 32) * 32, ft_rgb(0, 200,100));
+		else
+			ft_draw_block(mlx, (x / 32) * 32, (y / 32) * 32, ft_rgb(0, 255,0));
+
+	}
+	else
+	{
+		if (opt == VER)
+			ft_draw_block(mlx, (x / 32) * 32, (y /32) * 32, ft_rgb(255, 125, 0));
+		else
+			ft_draw_block(mlx, (x / 32) * 32, (y /32) * 32, ft_rgb(255, 0, 0));
+	}
 	return (map[y / 32][x / 32]);
 }
 
@@ -167,25 +184,25 @@ double ft_lenght_hor(double angle, t_mlx *mlx)
 	}
 	x = ft_find_x(lenght, angle);
 	y = ft_find_y(lenght, angle);
-	// ft_draw_point(mlx, x, y, ft_rgb(255, 255, 0));
+	ft_draw_point(mlx, x, y, ft_rgb(255, 255, 0));
 	while (1)
 	{
 	// NOTE si je regarder vers le bas
 		if (angle > 0 && angle < PI)
 		{
-			if (ft_check_wall(lround(x + mlx->x), lround(y + mlx->y)))
+			if (ft_check_wall(lround(x + mlx->x), lround(y + mlx->y), mlx, 0))
 				return (lenght);
 		}
 	// NOTE sinon je regarder vers le haut
 		else
 		{
-			if (ft_check_wall(lround(x + mlx->x), lround(y + mlx->y - SIZE_CUBE)))
+			if (ft_check_wall(lround(x + mlx->x), lround(y + mlx->y - SIZE_CUBE), mlx, 0))
 				return (lenght);
 		}
 		lenght += fabs(32.0 / sin(angle));
 		x = ft_find_x(lenght, angle);
 		y = ft_find_y(lenght, angle);
-		// ft_draw_point(mlx, x, y, ft_rgb(255, 0, 0));
+		ft_draw_point(mlx, x, y, ft_rgb(200, 0, 0));
 		if (lenght > WIDTH_WINDOW)
 			break;
 	}
@@ -212,25 +229,25 @@ double ft_lenght_ver(double angle, t_mlx *mlx)
 	}
 		x = ft_find_x(lenght, angle);
 		y = ft_find_y(lenght, angle);
-		// ft_draw_point(mlx, x, y, ft_rgb(255, 255,0));
+		ft_draw_point(mlx, x, y, ft_rgb(0, 255,255));
 	while (1)
 	{
 	// NOTE Je regarder vers la gauche
 		if (angle > PI / 2 && angle < 3 * PI / 2)
 		{
-			if (ft_check_wall(lround(x + mlx->x - SIZE_CUBE), lround(y + mlx->y)))
+			if (ft_check_wall(lround(x + mlx->x - SIZE_CUBE), lround(y + mlx->y), mlx, 1))
 				return (lenght);
 		}
 	// NOTE Je regarder vers la droite
 		else
 		{
-			if (ft_check_wall(lround(x + mlx->x), lround(y + mlx->y)))
+			if (ft_check_wall(lround(x + mlx->x), lround(y + mlx->y), mlx, 1))
 				return (lenght);
 		}
 		lenght += fabs(32.0 / cos(angle));
 		x = ft_find_x(lenght, angle);
 		y = ft_find_y(lenght, angle);
-	// ft_draw_point(mlx, x, y, ft_rgb(255, 0,0));
+	ft_draw_point(mlx, x, y, ft_rgb(125, 125,0));
 		if (lenght > HEIGHT_WINDOW)
 			break;
 	}
@@ -277,7 +294,7 @@ void ft_draw_lines(t_mlx *mlx)
 	double tmp;
 
 	tmp = mlx->angle;
-	mlx->angle -= PI / 180 * 30;
+	// mlx->angle -= PI / 180 * 30;
 	for (int i = 0; i < 1; i++)
 	{
 		x = 0;
@@ -286,16 +303,20 @@ void ft_draw_lines(t_mlx *mlx)
 		double test = ft_lenght(mlx->angle, mlx);
 		while (lenght < test)
 		{
-			my_mlx_pixel_put(&mlx->img, x + mlx->x, y + mlx->y, ft_rgb(0, 255, 0));
+			my_mlx_pixel_put(&mlx->img, x + mlx->x, y + mlx->y, ft_rgb(0, 255, 255));
 			x += cos(mlx->angle);
 			y += sin(mlx->angle);
 			lenght++;
 			if (lenght >= 1000)
 				break;
 		}
-		// printf("x:%f y:%f angle:%f lenght:%f\n", mlx->x, mlx->y, mlx->angle, lenght);
-		// fflush(stdout);
-		mlx->angle += PI / 180;
+		printf("x:%f y:%f angle:%f lenght:%f\n", mlx->x, mlx->y, mlx->angle, lenght);
+		fflush(stdout);
+		// mlx->angle += PI / 180;
+		// if (mlx->angle > 2 * PI)
+		// {
+			// mlx->angle -= 2 * PI;
+		// }
 	}
 	mlx->angle = tmp;
 	ft_draw_dir(mlx);
@@ -323,11 +344,11 @@ int main(void)
 	t_mlx mlx;
 
 	// NOTE Position du joueur
-	mlx.x = 245;
-	mlx.y = 225;
+	mlx.x = 255;
+	mlx.y = 223;
 
 	// NOTE	Orientation de la vue
-	mlx.angle = 3;
+	mlx.angle = 4.249876;
 	mlx.dx = cos(0);
 	mlx.dy = sin(0);
 

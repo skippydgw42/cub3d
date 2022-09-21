@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cube.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdegraeu <mdegraeu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ltrinchi <ltrinchi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 12:20:09 by mdegraeu          #+#    #+#             */
-/*   Updated: 2022/09/20 12:02:02 by mdegraeu         ###   ########.fr       */
+/*   Updated: 2022/09/16 10:36:59 by ltrinchi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@
 
 // Config
 # define PI	3.141593
-# define WIDTH_WINDOW 1920
-# define HEIGHT_WINDOW 1080
+# define WIDTH_WINDOW 540
+# define HEIGHT_WINDOW 480
 # define NAME_WINDOW "42_cub3D"
 #define SIZE_CUBE 32
 
