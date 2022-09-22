@@ -6,7 +6,7 @@
 /*   By: mdegraeu <mdegraeu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 13:26:43 by mdegraeu          #+#    #+#             */
-/*   Updated: 2022/09/22 17:11:41 by mdegraeu         ###   ########.fr       */
+/*   Updated: 2022/09/22 17:17:46 by mdegraeu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,9 +109,9 @@ double ft_lenght_ver(double angle, t_mlx *mlx)
 		}
 		else
 		{
-			if (ft_check_wall(lround(x + mlx->x), lround(y + mlx->y), angle, 0))
+			if (ft_check_wall(lround(x + mlx->x), lround(y + mlx->y), angle, 1))
 				return (length);
-			else if (ft_check_wall(lround(x + mlx->x - SIZE_CUBE), lround(y + mlx->y), angle, 1))
+			else if (ft_check_wall(lround(x + mlx->x - SIZE_CUBE), lround(y + mlx->y), angle, 0))
 				return (length);
 		}
 		length += fabs(32.0 / cos(angle));
@@ -129,11 +129,11 @@ int main(void)
 	t_mlx mlx;
 
 	// NOTE Position du joueur
-	mlx.x = 245;
-	mlx.y = 225;
+	mlx.x = 255;
+	mlx.y = 223;
 
 	// NOTE	Orientation de la vue
-	mlx.angle = 3;
+	mlx.angle = 4.249876;
 	mlx.dx = cos(0);
 	mlx.dy = sin(0);
 

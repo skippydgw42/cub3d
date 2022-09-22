@@ -86,7 +86,7 @@ int		ft_keyboard(int keycode, t_mlx *mlx)
 		{
 			mlx->angle = 2.0 * PI;
 		}
-		mlx->angle -= PI / 180.0;
+		mlx->angle -= PI / 360.0;
 		mlx->dx = cos(mlx->angle);
 		mlx->dy = sin(mlx->angle);
 	}
@@ -103,7 +103,7 @@ int		ft_keyboard(int keycode, t_mlx *mlx)
 		{
 			mlx->angle = 0;
 		}
-		mlx->angle += PI / 180.0;
+		mlx->angle += PI / 360.0;
 		mlx->dx = cos(mlx->angle);
 		mlx->dy = sin(mlx->angle);
 	}
