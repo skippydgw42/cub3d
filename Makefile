@@ -6,7 +6,7 @@
 #    By: mdegraeu <mdegraeu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/13 15:44:05 by ltrinchi          #+#    #+#              #
-#    Updated: 2022/09/20 12:01:51 by mdegraeu         ###   ########.fr        #
+#    Updated: 2022/09/22 13:51:34 by mdegraeu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,9 @@ NAME = cub3D
 
 SRCS_WITHOUT_PATH = \
 					mlx_utils.c \
-					main.c 
+					main.c \
+					effective.c \
+					check_contact.c
 
 OBJS_SRCS_WITHOUT_PATH = $(SRCS_WITHOUT_PATH:.c=.o)
 

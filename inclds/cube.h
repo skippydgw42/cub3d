@@ -6,7 +6,7 @@
 /*   By: mdegraeu <mdegraeu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 12:20:09 by mdegraeu          #+#    #+#             */
-/*   Updated: 2022/09/20 12:02:02 by mdegraeu         ###   ########.fr       */
+/*   Updated: 2022/09/22 16:30:18 by mdegraeu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@
 
 // Config
 # define PI	3.141593
-# define WIDTH_WINDOW 1920
-# define HEIGHT_WINDOW 1080
+# define WIDTH_WINDOW 540
+# define HEIGHT_WINDOW 480
 # define NAME_WINDOW "42_cub3D"
 #define SIZE_CUBE 32
 
@@ -40,6 +40,13 @@
 # define LEFT 123
 # define RIGHT 124
 
+#define SIZE_SQUARE 10
+#define LENGHT_LINE 100
+#define WIDTH_LINE 5
+
+#define SIZE_CUBE 32
+#define MAP_WIDHT 16
+#define MAP_HEIGHT 14
 
 typedef struct	s_data {
 	void	*img;
@@ -73,5 +80,20 @@ int		ft_close_window(void *param);
 int		ft_keyboard(int keycode, t_mlx *mlx);
 void	my_mlx_pixel_put(t_data_img_mlx *data, int x, int y, int color);
 void	my_mlx_clear_window(t_mlx *mlx);
+
+//effective functions
+void	ft_draw_dir(t_mlx *mlx);
+double	ft_lenght(double angle, t_mlx *mlx);
+void	ft_draw_point(t_mlx *mlx, int x, int y, int color);
+float	ft_decalage_y(t_mlx *mlx);
+float	ft_decalage_x(t_mlx *mlx);
+double	ft_find_x(double hypo, double angle);
+double	ft_find_y(double hypo, double angle);
+void	ft_draw_block(t_mlx *mlx, int pos_x, int pos_y);
+
+double	ft_lenght_hor(double angle, t_mlx *mlx);
+double	ft_lenght_ver(double angle, t_mlx *mlx);
+int		ft_check_wall(int x, int y, double angle, int rev);
+int		ft_angle(double angle);
 
 #endif
