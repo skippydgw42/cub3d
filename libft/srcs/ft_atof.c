@@ -6,7 +6,7 @@
 /*   By: ltrinchi <ltrinchi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 14:21:15 by ltrinchi          #+#    #+#             */
-/*   Updated: 2022/02/23 16:00:17 by ltrinchi         ###   ########lyon.fr   */
+/*   Updated: 2022/10/05 16:52:15 by ltrinchi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,14 @@ static int	ft_length(char *str)
 	return (i);
 }
 
-static double	ft_atof_help(int loc_comma, int lenght, char *str)
+static double	ft_atof_help(int loc_comma, int length, char *str)
 {
 	double	nb;
 	double	rst;
 	int		i;
 
 	i = 0;
-	str[loc_comma + 1 + lenght] = 0;
+	str[loc_comma + 1 + length] = 0;
 	nb = ft_atol(str);
 	rst = ft_atol(&str[loc_comma + 1]);
 	str[loc_comma] = 0;
@@ -45,7 +45,7 @@ static double	ft_atof_help(int loc_comma, int lenght, char *str)
 			rst = 0;
 		i++;
 	}
-	while (lenght-- > 0)
+	while (length-- > 0)
 		rst *= 0.1;
 	if (nb < 0)
 		rst *= -1;
@@ -57,17 +57,17 @@ double	ft_atof(const char *str_src)
 {
 	char	*str;
 	int		loc_comma;
-	int		lenght;
+	int		length;
 	double	nb;
 
 	loc_comma = 0;
 	str = ft_strdup(str_src);
 	while (str[loc_comma] != '.' && str[loc_comma])
 		loc_comma++;
-	lenght = ft_length(&str[loc_comma + 1]);
-	if (lenght > 7)
-		lenght = 7;
-	nb = ft_atof_help(loc_comma, lenght, str);
+	length = ft_length(&str[loc_comma + 1]);
+	if (length > 7)
+		length = 7;
+	nb = ft_atof_help(loc_comma, length, str);
 	free(str);
 	return (nb);
 }

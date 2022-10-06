@@ -3,158 +3,116 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdegraeu <mdegraeu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ltrinchi <ltrinchi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 13:26:43 by mdegraeu          #+#    #+#             */
-/*   Updated: 2022/09/22 17:17:46 by mdegraeu         ###   ########.fr       */
+/*   Updated: 2022/09/15 17:50:48nchi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inclds/cube.h"
 
-// static int map[MAP_HEIGHT][MAP_WIDHT] = {
-// 	{0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0},
-// 	{0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0},
-// 	{0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0},
-// 	{0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0},
-// 	{0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0},
-// 	{1, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0},
-// 	{0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0},
-// 	{0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0},
-// 	{0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0},
-// 	{0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0},
-// 	{1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0},
-// 	{0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-// 	{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}};
+// NOTE A supprimer
+#define MAP_WIDHT 16
+#define MAP_HEIGHT 14
 
-double	ft_ml_hor(double angle, t_mlx *mlx)
+
+void	ft_init_map(t_map *map)
 {
-	double	length;
+	int map_init[MAP_HEIGHT][MAP_WIDHT] = {
+	{0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+	{0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1},
+	{0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1},
+	{0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1},
+	{0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1},
+	{0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1},
+	{0, 1, 0, 0, 0, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1},
+	{0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1},
+	{0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1},
+	{0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1},
+	{0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1},
+	{0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1},
+	{0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+	{0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}};
 
-	if (angle > 0 && angle < PI)
-		length = ft_decalage_y(mlx) / sin(angle);
-	else
-		length = (ft_decalage_y(mlx) - 32) / sin(angle);
-	return (length);
-}
+	int	y;
+	int	x;
 
-double	ft_ml_ver(double angle, t_mlx *mlx)
-{
-	double	length;
-
-	if (angle > PI / 2 && angle < 3 * PI / 2)
-		length = (ft_decalage_x(mlx) - 32) / cos(angle);
-	else
-		length = ft_decalage_x(mlx) / cos(angle);
-	return (length);
-}
-
-
-double ft_lenght_hor(double angle, t_mlx *mlx)
-{
-	double length;
-	double x;
-	double y;
-	
-	length = ft_ml_hor(angle, mlx);
-	x = ft_find_x(length, angle);
-	y = ft_find_y(length, angle);
-	// ft_draw_point(mlx, x, y, ft_rgb(255, 255, 0));
-
-	while (1)
+	y = 0;
+	map->map = malloc(sizeof(int *) * map->height);
+	while (y < map->height)
 	{
-		if (angle >= 0 && angle < PI)
+		x = 0;
+			map->map[y] = malloc(sizeof(int) * map->width);
+		while (x < map->width)
 		{
-			if (ft_check_wall(lround(x + mlx->x), lround(y + mlx->y), angle, 0))
-				return (length);
-			else if (ft_check_wall(lround(x + mlx->x), lround(y + mlx->y - SIZE_CUBE), angle, 0))
-				return (length);
+			map->map[y][x] = map_init[y][x];
+			x++;
 		}
-		else
-		{
-			if (ft_check_wall(lround(x + mlx->x), lround(y + mlx->y - SIZE_CUBE), angle, 0))
-				return (length);
-			else if (ft_check_wall(lround(x + mlx->x), lround(y + mlx->y), angle, 0))
-				return (length);
-		}
-		length += fabs(32.0 / sin(angle));
-		x = ft_find_x(length, angle);
-		y = ft_find_y(length, angle);
-		// ft_draw_point(mlx, x, y, ft_rgb(255, 0, 0));
-		if (length > WIDTH_WINDOW)
-			break ;
+		y++;
 	}
-	return (length);
 }
 
-double ft_lenght_ver(double angle, t_mlx *mlx)
+void	my_mlx_init_xpm(t_img_mlx *data_img, t_mlx *data_mlx, char *path_to_file)
 {
-	double length;
-	double x;
-	double y;
+	data_img->img = mlx_xpm_file_to_image(data_mlx->mlx, path_to_file, &data_img->width, &data_img->height);
+	if (!data_img->img)
+	//  TODO Ajout d'une secu quand meme lol
+		puts("Error init texure");
+	data_img->addr = mlx_get_data_addr(data_img->img, &data_img->bits_per_pixel, &data_img->line_length, &data_img->endian);
+}
 
-	length = ft_ml_ver(angle, mlx);
-	x = ft_find_x(length, angle);
-	y = ft_find_y(length, angle);
-	// ft_draw_point(mlx, x, y, ft_rgb(255, 255,0));
+// REVIEW Changer les paths
+void	ft_init_tex(t_data *data)
+{
+	my_mlx_init_xpm(&data->data_tex.NO, &data->data_mlx, "./textures/wood.xpm");
+	my_mlx_init_xpm(&data->data_tex.SO, &data->data_mlx, "./textures/eagle.xpm");
+	my_mlx_init_xpm(&data->data_tex.WE, &data->data_mlx, "./textures/greystone.xpm");
+	my_mlx_init_xpm(&data->data_tex.EA, &data->data_mlx, "./textures/redbrick.xpm");
+}
 
-	while (1)
-	{
-		if (angle >= PI / 2 && angle < 3 * PI / 2)
-		{
-			if (ft_check_wall(lround(x + mlx->x - SIZE_CUBE), lround(y + mlx->y), angle, 1))
-				return (length);
-			else if (ft_check_wall(lround(x + mlx->x), lround(y + mlx->y), angle, 0))
-				return (length);
-		}
-		else
-		{
-			if (ft_check_wall(lround(x + mlx->x), lround(y + mlx->y), angle, 1))
-				return (length);
-			else if (ft_check_wall(lround(x + mlx->x - SIZE_CUBE), lround(y + mlx->y), angle, 0))
-				return (length);
-		}
-		length += fabs(32.0 / cos(angle));
-		x = ft_find_x(length, angle);
-		y = ft_find_y(length, angle);
-		// ft_draw_point(mlx, x, y, ft_rgb(255, 0,0));
-		if (length > HEIGHT_WINDOW)
-			break ;
-	}
-	return (length);
+unsigned int	my_mlx_pixel_get_color(t_img_mlx *data, int x, int y)
+{
+	char	*dst;
+	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
+	return (*(unsigned int*)dst);
 }
 
 int main(void)
 {
-	t_mlx mlx;
-
-	// NOTE Position du joueur
-	mlx.x = 255;
-	mlx.y = 223;
-
-	// NOTE	Orientation de la vue
-	mlx.angle = 4.249876;
-	mlx.dx = cos(0);
-	mlx.dy = sin(0);
+	t_data	data;
 
 	// NOTE Mlx de merde
-	mlx.mlx = mlx_init();
-	mlx.window = mlx_new_window(mlx.mlx, WIDTH_WINDOW, HEIGHT_WINDOW, NAME_WINDOW);
-	mlx.img.img = mlx_new_image(mlx.mlx, WIDTH_WINDOW, HEIGHT_WINDOW);
-	mlx.img.addr = mlx_get_data_addr(mlx.img.img, &mlx.img.bits_per_pixel, &mlx.img.line_length, &mlx.img.endian);
+	// REVIEW leaks sur mon mac (Luca)
+	data.data_mlx.mlx = mlx_init();
+	data.data_mlx.window = mlx_new_window(data.data_mlx.mlx, WIDTH_WINDOW, HEIGHT_WINDOW, NAME_WINDOW);
+	data.data_mlx.img.img = mlx_new_image(data.data_mlx.mlx, WIDTH_WINDOW, HEIGHT_WINDOW);
+	data.data_mlx.img.addr = mlx_get_data_addr(data.data_mlx.img.img, &data.data_mlx.img.bits_per_pixel, &data.data_mlx.img.line_length, &data.data_mlx.img.endian);
 
-	// ft_draw_map(&mlx);
-	ft_draw_map(&mlx);
-	ft_draw_grid(&mlx);
-	ft_draw_lines(&mlx);
-	// ft_draw_square(&mlx);
-	mlx_put_image_to_window(mlx.mlx, mlx.window, mlx.img.img, 0, 0);
+	// NOTE Position du joueur
+	data.pos.x = 3;
+	data.pos.y = 3;
+
+	// NOTE	Orientation de la vue
+	data.angle = 0;
+	data.dir.x = cos(0);
+	data.dir.y = sin(0);
+
+	// NOTE	Data map
+	data.data_map.height = MAP_HEIGHT;
+	data.data_map.width = MAP_WIDHT;
+	ft_init_map(&data.data_map);
+
+	// NOTE	Init texture
+	ft_init_tex(&data);
+
+	ft_raycasting(&data);
 
 	// NOTE Gestion des touche du clavier
-	mlx_hook(mlx.window, 2, 0, &ft_keyboard, &mlx);
+	mlx_hook(data.data_mlx.window, 2, 0, &ft_keyboard, &data);
 	// NOTE Croix rouge
-	mlx_hook(mlx.window, 17, 1L << 3, &ft_close_window, NULL);
+	mlx_hook(data.data_mlx.window, 17, 1L << 3, &ft_close_window, &data);
 
-	mlx_loop(mlx.mlx);
+	mlx_loop(data.data_mlx.mlx);
 	return (0);
 }
