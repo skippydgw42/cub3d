@@ -6,7 +6,7 @@
 /*   By: ltrinchi <ltrinchi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 13:09:40 by ltrinchi          #+#    #+#             */
-/*   Updated: 2022/10/06 16:46:11 by ltrinchi         ###   ########lyon.fr   */
+/*   Updated: 2022/10/06 18:23:00 by ltrinchi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ int		ft_rgb(unsigned char red, unsigned char green, unsigned char blue)
 	return ((red * 256 * 256) + (green * 256) + blue);
 }
 
-void	ft_draw_wall_xpm(t_data *data, t_img_mlx *src_img, t_coord screen, double ratio)
+void	ft_draw_wall_xpm(t_data *data, t_img_mlx *src_img, t_coord screen, double ratio_y)
 {
-	my_mlx_pixel_put(&data->data_mlx.img, screen.x, screen.y, my_mlx_pixel_get_color(src_img, data->data_tex.start * src_img->width, (screen.y - data->data_tex.verti_shift) * ratio));
+	my_mlx_pixel_put(&data->data_mlx.img, screen.x, screen.y, my_mlx_pixel_get_color(src_img, data->data_tex.ratio_x * src_img->width, (screen.y - data->data_tex.verti_shift) * ratio_y));
 }
 
 void ft_draw_wall(t_data *data, double length, int pos, int dir)

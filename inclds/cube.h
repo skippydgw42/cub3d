@@ -6,7 +6,7 @@
 /*   By: ltrinchi <ltrinchi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 12:20:09 by mdegraeu          #+#    #+#             */
-/*   Updated: 2022/10/05 17:12:05 by ltrinchi         ###   ########lyon.fr   */
+/*   Updated: 2022/10/07 13:26:22 by ltrinchi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,11 @@
 # define NAME_WINDOW "42_cub3D"
 
 // Draw
-# define SIZE_CUBE 10.0
+# define SIZE_CUBE 15
+# define SIZE_MINI_MAP 8
 # define RESOLUTION 50.0
 # define FOV 60.0
 # define DEGREE (2 * M_PI) / 360
-# define WALL 1
 
 // DDA
 # define HOR 0
@@ -43,6 +43,8 @@
 # define SOUTH 2
 # define EAST 3
 # define WEST 4
+# define WALL 1
+# define FLOOR 0
 
 // Keyboard
 # define ESC 53
@@ -71,10 +73,9 @@ typedef struct s_texture
 	t_img_mlx	SO;
 	t_img_mlx	WE;
 	t_img_mlx	EA;
-	double		start;
+	double		ratio_x;
 	double		height;
 	double		verti_shift;
-	double		ratio;
 }	t_texture;
 
 typedef	struct s_map

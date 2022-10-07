@@ -6,18 +6,31 @@
 /*   By: ltrinchi <ltrinchi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 14:50:09 by ltrinchi          #+#    #+#             */
-/*   Updated: 2022/10/05 17:10:07 by ltrinchi         ###   ########lyon.fr   */
+/*   Updated: 2022/10/06 18:24:04 by ltrinchi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inclds/cube.h"
 
-// REVIEW Bug avec la collision quand je suis sur un coordonnee parfaite (ex: x=2, y=3)
+
+void	ft_set_ratio_x(t_data *data, t_coord pos)
+{
+	if (data->orientation == NORTH)
+		data->data_tex.ratio_x = fmod(pos.x, 1);
+	else if(data->orientation == SOUTH)
+		data->data_tex.ratio_x = 1 - fmod(pos.x, 1);
+	if (data->orientation == EAST)
+		data->data_tex.ratio_x = fmod(pos.y, 1);
+	else if (data->orientation == WEST)
+		data->data_tex.ratio_x = 1 - fmod(pos.y, 1);
+}
+
 int	ft_check_wall(double x, double y, t_data *data, int opt)
 {
-	double	pos_x = data->pos.x;
-	double	pos_y = data->pos.y;
+	t_coord	pos;
 
+	pos.x = data->pos.x;
+	pos.y = data->pos.y;
 	if (x < 0 || y < 0 || x > data->data_map.width || y > data->data_map.height)
 		return (0);
 	if (data->angle > M_PI_2 && data->angle < (3 * M_PI_2))
@@ -38,21 +51,12 @@ int	ft_check_wall(double x, double y, t_data *data, int opt)
 			y--;
 		}
 	}
-	pos_x += x;
-	pos_y += y;
-	if (pos_x < 0 || pos_y < 0 || pos_x > data->data_map.width || pos_y > data->data_map.height)
+	pos.x += x;
+	pos.y += y;
+	if (pos.x < 0 || pos.y < 0 || pos.x > data->data_map.width || pos.y > data->data_map.height)
 		return (0);
-	if (data->orientation == NORTH)
-		data->data_tex.start = fmod(pos_x, 1);
-	else if(data->orientation == SOUTH)
-		data->data_tex.start = 1 - fmod(pos_x, 1);
-
-	if (data->orientation == EAST)
-		data->data_tex.start = fmod(pos_y, 1);
-	else if (data->orientation == WEST)
-		data->data_tex.start = 1 - fmod(pos_y, 1);
-
-	return (data->data_map.map[(int)pos_y][(int)pos_x]);
+	ft_set_ratio_x(data, pos);
+	return (data->data_map.map[(int)pos.y][(int)pos.x]);
 }
 
 static double ft_shift(t_data *data, int opt)
@@ -125,11 +129,11 @@ double ft_length(t_data *data)
 
 	length_ver = ft_verti(data);
 	ver_or = data->orientation;
-	start_ver = data->data_tex.start;
+	start_ver = data->data_tex.ratio_x;
 	length_hor = ft_horiz(data);
 	if (length_hor < length_ver)
 		return (length_hor);
-	data->data_tex.start = start_ver;
+	data->data_tex.ratio_x = start_ver;
 	data->orientation = ver_or;
 	return (length_ver);
 }

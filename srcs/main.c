@@ -20,19 +20,19 @@
 void	ft_init_map(t_map *map)
 {
 	int map_init[MAP_HEIGHT][MAP_WIDHT] = {
-	{0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-	{0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1},
-	{0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1},
-	{0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1},
-	{0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1},
-	{0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1},
-	{0, 1, 0, 0, 0, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1},
-	{0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1},
-	{0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1},
-	{0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1},
-	{0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1},
-	{0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1},
-	{0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+	{0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+	{0, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1},
+	{1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1},
+	{0, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1},
+	{0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1},
+	{1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1},
+	{0, 0, 1, 0, 0, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1},
+	{0, 0, 1, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1},
+	{0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1},
+	{0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 1, 1},
+	{0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1},
+	{0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1},
+	{0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
 	{0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}};
 
 	int	y;
@@ -40,6 +40,11 @@ void	ft_init_map(t_map *map)
 
 	y = 0;
 	map->map = malloc(sizeof(int *) * map->height);
+	if (!map->map)
+	{
+		perror("Cub3D:");
+		exit(0);
+	}
 	while (y < map->height)
 	{
 		x = 0;
@@ -53,13 +58,15 @@ void	ft_init_map(t_map *map)
 	}
 }
 
-void	my_mlx_init_xpm(t_img_mlx *data_img, t_mlx *data_mlx, char *path_to_file)
+void	my_mlx_init_xpm(t_img_mlx *texture, t_mlx *data_mlx, char *path_to_file)
 {
-	data_img->img = mlx_xpm_file_to_image(data_mlx->mlx, path_to_file, &data_img->width, &data_img->height);
-	if (!data_img->img)
-	//  TODO Ajout d'une secu quand meme lol
-		puts("Error init texure");
-	data_img->addr = mlx_get_data_addr(data_img->img, &data_img->bits_per_pixel, &data_img->line_length, &data_img->endian);
+	texture->img = mlx_xpm_file_to_image(data_mlx->mlx, path_to_file, &texture->width, &texture->height);
+	if (!texture->img)
+	{
+		printf("Error init texture: %s\n", path_to_file);
+		exit(0);
+	}
+	texture->addr = mlx_get_data_addr(texture->img, &texture->bits_per_pixel, &texture->line_length, &texture->endian);
 }
 
 // REVIEW Changer les paths
@@ -74,6 +81,7 @@ void	ft_init_tex(t_data *data)
 unsigned int	my_mlx_pixel_get_color(t_img_mlx *data, int x, int y)
 {
 	char	*dst;
+
 	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
 	return (*(unsigned int*)dst);
 }
@@ -90,8 +98,8 @@ int main(void)
 	data.data_mlx.img.addr = mlx_get_data_addr(data.data_mlx.img.img, &data.data_mlx.img.bits_per_pixel, &data.data_mlx.img.line_length, &data.data_mlx.img.endian);
 
 	// NOTE Position du joueur
-	data.pos.x = 3;
-	data.pos.y = 3;
+	data.pos.x = 4;
+	data.pos.y = 4;
 
 	// NOTE	Orientation de la vue
 	data.angle = 0;
