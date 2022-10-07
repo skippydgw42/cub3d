@@ -1,28 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free.c                                             :+:      :+:    :+:   */
+/*   return.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ltrinchi <ltrinchi@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: mdegraeu <mdegraeu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/29 16:19:27 by ltrinchi          #+#    #+#             */
-/*   Updated: 2022/09/29 18:29:13 by ltrinchi         ###   ########lyon.fr   */
+/*   Created: 2022/10/07 15:04:46 by mdegraeu          #+#    #+#             */
+/*   Updated: 2022/10/07 15:05:18 by mdegraeu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inclds/cube.h"
 
-void	ft_free_2D_array(int heigth, int width, int **tab)
+int	ft_return(char *str)
 {
-	(void)width;
-	(void)tab;
-	int	y;
-
-	y = 0;
-	while (y < heigth)
-	{
-		free(tab[y]);
-		y++;
-	}
-	free(tab);
+	printf("%s\n", str);
+	return (0);
 }

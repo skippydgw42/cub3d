@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cube.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ltrinchi <ltrinchi@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: mdegraeu <mdegraeu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 12:20:09 by mdegraeu          #+#    #+#             */
-/*   Updated: 2022/10/07 13:26:22 by ltrinchi         ###   ########lyon.fr   */
+/*   Updated: 2022/10/07 16:09:32 by mdegraeu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define CUBE_H
 
 # include "../mlib/mlx.h"
+# include "../libft/srcs/libft.h"
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdio.h>
@@ -25,7 +26,6 @@
 // Config
 # define WIDTH_WINDOW 720
 # define HEIGHT_WINDOW 640
-# define NAME_WINDOW "42_cub3D"
 
 // Draw
 # define SIZE_CUBE 15
@@ -77,14 +77,24 @@ typedef struct s_texture
 	double		height;
 	double		verti_shift;
 }	t_texture;
-
-typedef	struct s_map
+typedef struct s_map
 {
-	int	height;
-	int	width;
-	int	**map;
+	int		**map;
+	int		height;
+	int		width;
+	char	**strmap;
+	char	*map_name;
+	char	*no_texture;
+	int		no;
+	char	*so_texture;
+	int		so;
+	char	*we_texture;
+	int		we;
+	char	*ea_texture;
+	int		ea;
+	int		*floor;
+	int		*ceiling;
 }	t_map;
-
 typedef	struct s_coord
 {
 	double	x;
@@ -110,6 +120,29 @@ typedef	struct s_data
 	t_texture	data_tex;
 }	t_data;
 
+//DEL
+void	ft_printmapstruct(t_map map);
+void	ft_printmap(char **map);
+
+//ADD
+// void	ft_freemap(t_map map);
+int		ft_return(char *str);
+
+//INIT
+int		ft_setparams(t_map *map, char *flat_map);
+int		ft_setmap(t_map *map, char *flat_map, int x);
+int		ft_to_map(char *flat_map, int x);
+void	ft_imap(t_map *map);
+
+//PARSING
+int		ft_init_map(t_map *map, char **av);
+int		ft_parsing(t_data *data);
+int		ft_recursive(char **map, int i, int j);
+int		ft_colpos(char **map);
+int		ft_linepos(char **map);
+int		ft_char_list(char c);
+
+int	ft_coord_check(char **map);
 
 // draw
 int		ft_rgb(unsigned char red, unsigned char green, unsigned char blue);

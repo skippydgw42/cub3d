@@ -51,12 +51,14 @@ void	ft_draw_wall_map(t_data *data)
 	x = 0;
 	shift_x = fmod(data->pos.x, 1);
 	shift_y = fmod(data->pos.y, 1);
-	while (x <= SIZE_MINI_MAP)
+	while (x <= data->data_map.width)
 	{
 		y = 0;
-		while (y <= SIZE_MINI_MAP)
+		// while (y <= SIZE_MINI_MAP)	
+		while (y <= data->data_map.height)
+
 		{
-			if (ft_check_map(data, x + data->pos.x - (SIZE_MINI_MAP / 2), y + data->pos.y - (SIZE_MINI_MAP / 2)))
+			if (ft_check_map(data, x + data->pos.x - (SIZE_MINI_MAP / 2), y + data->pos.y - (SIZE_MINI_MAP / 2)) == 1)
 				ft_draw_square(data, (x - shift_x) * SIZE_CUBE, (y - shift_y) * SIZE_CUBE, 0xffffff, SIZE_CUBE - 1);
 			y++;
 		}
