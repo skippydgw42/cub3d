@@ -6,7 +6,7 @@
 /*   By: mdegraeu <mdegraeu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 11:49:13 by mdegraeu          #+#    #+#             */
-/*   Updated: 2022/10/10 17:37:35 by mdegraeu         ###   ########.fr       */
+/*   Updated: 2022/10/10 17:39:48 by mdegraeu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,16 +69,7 @@ void	ft_free_array(int size, int **tab)
 
 int	ft_freemap(t_map *map)
 {
-	int	i;
-
-	i = 0;
 	ft_free_texture_path(map);
 	ft_freedstr(map->strmap);
-	while (i < map->height)
-	{
-		free(map->map[i]);
-		i++;
-	}
-	free(map->map);
 	return (0);
 }

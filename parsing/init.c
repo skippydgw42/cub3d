@@ -6,7 +6,7 @@
 /*   By: mdegraeu <mdegraeu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 12:55:23 by mdegraeu          #+#    #+#             */
-/*   Updated: 2022/10/10 17:11:28 by mdegraeu         ###   ########.fr       */
+/*   Updated: 2022/10/10 17:42:32 by mdegraeu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,9 @@ void	ft_t_mapstruct(t_map *map)
 	map->strmap = NULL;
 	map->map = NULL;
 	map->map_name = NULL;
+	map->height = 0;
+	map->width = 0;
+	map->map = NULL;
 }
 
 int	ft_only_map(char *flat_map)

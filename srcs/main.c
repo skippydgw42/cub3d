@@ -68,7 +68,6 @@ void	my_mlx_init_xpm(t_img_mlx *texture, t_mlx *data_mlx, char *path_to_file)
 	texture->addr = mlx_get_data_addr(texture->img, &texture->bits_per_pixel, &texture->line_length, &texture->endian);
 }
 
-// REVIEW Changer les paths
 void	ft_init_tex(t_data *data)
 {
 	my_mlx_init_xpm(&data->data_tex.NO, &data->data_mlx, data->data_map.no_texture);
@@ -119,17 +118,18 @@ int main(int ac, char **av)
 		// ft_freemap(&data.data_map);
 		return (ft_return("====parsing===="));
 	}
-	ft_printmapstruct(data.data_map);
+	// ft_printmapstruct(data.data_map);
 	// NOTE Mlx de merde
 	data.data_mlx.mlx = mlx_init();
 	data.data_mlx.window = mlx_new_window(data.data_mlx.mlx, WIDTH_WINDOW, HEIGHT_WINDOW, data.data_map.map_name);
 	data.data_mlx.img.img = mlx_new_image(data.data_mlx.mlx, WIDTH_WINDOW, HEIGHT_WINDOW);
 	data.data_mlx.img.addr = mlx_get_data_addr(data.data_mlx.img.img, &data.data_mlx.img.bits_per_pixel, &data.data_mlx.img.line_length, &data.data_mlx.img.endian);
 
-	ft_init_player(&data);
 
 	// NOTE	Init texture
 	ft_init_tex(&data);
+
+	ft_init_player(&data);
 
 	ft_raycasting(&data);
 
