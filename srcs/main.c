@@ -86,6 +86,27 @@ unsigned int	my_mlx_pixel_get_color(t_img_mlx *data, int x, int y)
 	return (*(unsigned int*)dst);
 }
 
+void	ft_set_dir(t_data *data, int x, int y)
+{
+	if (data->data_map.strmap[y][x] == 'N')
+		data->angle = M_PI + M_PI_2;
+	else if (data->data_map.strmap[y][x] == 'S')
+		data->angle = M_PI_2;
+	else if (data->data_map.strmap[y][x] == 'W')
+		data->angle = M_PI;
+	else
+		data->angle = 0;
+}
+
+void	ft_init_player(t_data *data)
+{
+	data->pos.x = ft_colpos(data->data_map.strmap) + 0.5;
+	data->pos.y = ft_linepos(data->data_map.strmap) + 0.5;
+	ft_set_dir(data, data->pos.x, data->pos.y);
+	data->dir.x = cos(data->angle);
+	data->dir.y = sin(data->angle);
+}
+
 int main(int ac, char **av)
 {
 	t_data	data;
@@ -99,20 +120,12 @@ int main(int ac, char **av)
 	ft_printmapstruct(data.data_map);
 
 	// NOTE Mlx de merde
-	// REVIEW leaks sur mon mac (Luca)
 	data.data_mlx.mlx = mlx_init();
 	data.data_mlx.window = mlx_new_window(data.data_mlx.mlx, WIDTH_WINDOW, HEIGHT_WINDOW, data.data_map.map_name);
 	data.data_mlx.img.img = mlx_new_image(data.data_mlx.mlx, WIDTH_WINDOW, HEIGHT_WINDOW);
 	data.data_mlx.img.addr = mlx_get_data_addr(data.data_mlx.img.img, &data.data_mlx.img.bits_per_pixel, &data.data_mlx.img.line_length, &data.data_mlx.img.endian);
 
-	// NOTE Position du joueur
-	data.pos.x = ft_colpos(data.data_map.strmap);
-	data.pos.y = ft_linepos(data.data_map.strmap);
-
-	// NOTE	Orientation de la vue
-	data.angle = 0;
-	data.dir.x = cos(0);
-	data.dir.y = sin(0);
+	ft_init_player(&data);
 
 	// NOTE	Init texture
 	ft_init_tex(&data);
