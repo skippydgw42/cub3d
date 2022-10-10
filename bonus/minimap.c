@@ -35,7 +35,7 @@ int	ft_check_map(t_data *data, int x, int y)
 {
 	if (x <= 0 || y <= 0)
 		return (1);
-	if (x >= data->data_map.width || y >= data->data_map.height)
+	if (x >= data->data_map.width|| y >= data->data_map.height)
 		return (1);
 	return (data->data_map.map[y][x]);
 }
@@ -51,11 +51,10 @@ void	ft_draw_wall_map(t_data *data)
 	x = 0;
 	shift_x = fmod(data->pos.x, 1);
 	shift_y = fmod(data->pos.y, 1);
-	while (x <= data->data_map.width)
+	while (x <= SIZE_MINI_MAP)
 	{
 		y = 0;
-		// while (y <= SIZE_MINI_MAP)	
-		while (y <= data->data_map.height)
+		while (y <= SIZE_MINI_MAP)	
 
 		{
 			if (ft_check_map(data, x + data->pos.x - (SIZE_MINI_MAP / 2), y + data->pos.y - (SIZE_MINI_MAP / 2)) == 1)

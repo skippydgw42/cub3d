@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   DDA_algo.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdegraeu <mdegraeu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ltrinchi <ltrinchi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 14:50:09 by ltrinchi          #+#    #+#             */
-/*   Updated: 2022/10/07 15:08:42 by mdegraeu         ###   ########.fr       */
+/*   Updated: 2022/10/10 10:46:49 by ltrinchi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int	ft_check_wall(double x, double y, t_data *data, int opt)
 	}
 	pos.x += x;
 	pos.y += y;
-	if (pos.x < 0 || pos.y < 0 || pos.x > data->data_map.width || pos.y > data->data_map.height)
+	if (pos.x < 0 || pos.y < 0 || pos.x > data->data_map.width - 1 || pos.y > data->data_map.height - 1)
 		return (0);
 	ft_set_ratio_x(data, pos);
 	return (data->data_map.map[(int)pos.y][(int)pos.x]);

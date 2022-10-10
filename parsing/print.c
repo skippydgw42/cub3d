@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdegraeu <mdegraeu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ltrinchi <ltrinchi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:04:02 by mdegraeu          #+#    #+#             */
-/*   Updated: 2022/10/10 10:29:14 by mdegraeu         ###   ########.fr       */
+/*   Updated: 2022/10/10 10:38:37 by ltrinchi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,6 @@ void	ft_printmap(char **map)
 
 void	ft_printmapstruct(t_map map)
 {
-	int	i;
-
-	i = 0;
 	printf("=================\n");
 	printf("%s\n", map.map_name);
 	printf("=================\n");

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mdegraeu <mdegraeu@student.42.fr>          +#+  +:+       +#+         #
+#    By: ltrinchi <ltrinchi@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/13 15:44:05 by ltrinchi          #+#    #+#              #
-#    Updated: 2022/10/07 16:06:07 by mdegraeu         ###   ########.fr        #
+#    Updated: 2022/10/10 10:38:19 by ltrinchi         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -123,11 +123,11 @@ $(OBJS_SRCS):$(PATH_TO_OBJS)%.o	: $(PATH_TO_SRCS)%.c Makefile $(HEADER) $(LIBFT_
 	$(CC) $(CFLAGS) -c $< -o $@ 
 
 $(OBJS_PARSING):$(PATH_TO_OBJS)%.o : $(PATH_TO_PARSING)%.c Makefile $(HEADER) $(LIBFT_A) $(LIBMLX_A)
-	printf "\033[2K\r$(YELLOW)⏳ Compiling:$(WHITE) $< 🤞\n"
+	printf "\033[2K\r$(YELLOW)⏳ Compiling:$(WHITE) $< 🤞"
 	$(CC) $(CFLAGS) -c $< -o $@ 
 
 $(OBJS_ADD):$(PATH_TO_OBJS)%.o : $(PATH_TO_ADD)%.c Makefile $(HEADER) $(LIBFT_A) $(LIBMLX_A)
-	printf "\033[2K\r$(YELLOW)⏳ Compiling:$(WHITE) $< 🤞\n"
+	printf "\033[2K\r$(YELLOW)⏳ Compiling:$(WHITE) $< 🤞"
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(OBJS_ALGO):$(PATH_TO_OBJS)%.o	: $(PATH_TO_ALGO)%.c Makefile $(HEADER) $(LIBFT_A)
@@ -148,7 +148,7 @@ git: fclean
 
 clean:
 	make clean -C $(PATH_TO_LIBFT)
-	# make clean -C $(PATH_TO_MLX)
+	make clean -C $(PATH_TO_MLX)
 	$(RM) $(PATH_TO_OBJS)
 	printf "$(RED)👌 Files has been deleted in $(PATH_TO_OBJS) ($(NAME))$(WHITE)\n"  
 	printf "$(GREEN)✅ Clean 👍$(WHITE)\n"  
