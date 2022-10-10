@@ -12,52 +12,6 @@
 
 #include "../inclds/cube.h"
 
-// NOTE A supprimer
-#define MAP_WIDHT 16
-#define MAP_HEIGHT 14
-
-
-// void	ft_init_map(t_map *map)
-// {
-// 	int map_init[MAP_HEIGHT][MAP_WIDHT] = {
-// 	{0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-// 	{0, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1},
-// 	{1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1},
-// 	{0, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1},
-// 	{0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1},
-// 	{1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1},
-// 	{0, 0, 1, 0, 0, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1},
-// 	{0, 0, 1, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1},
-// 	{0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1},
-// 	{0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 1, 1},
-// 	{0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1},
-// 	{0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1},
-// 	{0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
-// 	{0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}};
-
-// 	int	y;
-// 	int	x;
-
-// 	y = 0;
-// 	map->map = malloc(sizeof(int *) * map->height);
-// 	if (!map->map)
-// 	{
-// 		perror("Cub3D:");
-// 		exit(0);
-// 	}
-// 	while (y < map->height)
-// 	{
-// 		x = 0;
-// 			map->map[y] = malloc(sizeof(int) * map->width);
-// 		while (x < map->width)
-// 		{
-// 			map->map[y][x] = map_init[y][x];
-// 			x++;
-// 		}
-// 		y++;
-// 	}
-// }
-
 void	ft_printmap(char **map)
 {
 	int	i;
@@ -166,8 +120,6 @@ int main(int ac, char **av)
 		return (ft_return("====parsing===="));
 	}
 	ft_printmapstruct(data.data_map);
-	ft_freemap(&data.data_map);
-	return (0);
 	// NOTE Mlx de merde
 	data.data_mlx.mlx = mlx_init();
 	data.data_mlx.window = mlx_new_window(data.data_mlx.mlx, WIDTH_WINDOW, HEIGHT_WINDOW, data.data_map.map_name);
