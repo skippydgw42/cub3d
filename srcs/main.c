@@ -58,6 +58,51 @@
 // 	}
 // }
 
+void	ft_printmap(char **map)
+{
+	int	i;
+
+	i = 0;
+	while (map[i])
+	{
+		printf("%s\n", map[i]);
+		i++;
+	}
+}
+
+void	ft_printmapstruct(t_map map)
+{
+	printf("=================\n");
+	printf("%s\n", map.map_name);
+	printf("=================\n");
+	printf("%s\n%s\n%s\n%s\n", map.no_texture, map.so_texture, map.we_texture, map.ea_texture);
+	printf("\n======\n");
+	printf("FLOOR\n");
+	for (int x = 0; x < 3; x++)
+	{
+		printf("%d ", map.floor[x]);
+	}
+	printf("\n======\n");
+	printf("CEILING\n");
+	for (int x = 0; x < 3; x++)
+	{
+		printf("%d ", map.ceiling[x]);
+	}
+	printf("\n======\nMAP\n");
+	ft_printmap(map.strmap);
+	printf("\n======\nINT_MAP\n");
+	printf("height:%d | max length:%d\n", map.height, map.width);
+	for (int i = 0; i < map.height; i++)
+	{
+		for (int j = 0; j < map.width; j++)
+		{
+			printf("%d", map.map[i][j]);
+		}
+		printf("\n");
+	}
+}
+
+
 void	my_mlx_init_xpm(t_img_mlx *texture, t_mlx *data_mlx, char *path_to_file)
 {
 	texture->img = mlx_xpm_file_to_image(data_mlx->mlx, path_to_file, &texture->width, &texture->height);
@@ -116,9 +161,13 @@ int main(int ac, char **av)
 	if (!ft_init_map(&data.data_map, av))
 		return (ft_return("====init===="));
 	if (!ft_parsing(&data))
+	{
+		// ft_freemap(&data.data_map);
 		return (ft_return("====parsing===="));
+	}
 	ft_printmapstruct(data.data_map);
-
+	ft_freemap(&data.data_map);
+	return (0);
 	// NOTE Mlx de merde
 	data.data_mlx.mlx = mlx_init();
 	data.data_mlx.window = mlx_new_window(data.data_mlx.mlx, WIDTH_WINDOW, HEIGHT_WINDOW, data.data_map.map_name);

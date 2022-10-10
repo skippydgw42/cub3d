@@ -6,7 +6,7 @@
 /*   By: mdegraeu <mdegraeu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 11:49:13 by mdegraeu          #+#    #+#             */
-/*   Updated: 2022/10/07 14:52:59 by mdegraeu         ###   ########.fr       */
+/*   Updated: 2022/10/10 16:37:46 by mdegraeu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,34 @@ void	ft_freedstr(char **str)
 	free(str);
 }
 
+void	ft_free_texture_path(t_map *map)
+{
+	free(map->map_name);
+	free(map->floor);
+	free(map->ceiling);
+	free(map->no_texture);
+	free(map->so_texture);
+	free(map->ea_texture);
+	free(map->we_texture);
+}
+
+int	ft_free_init(t_map *map, char *flat_map)
+{
+	int	i;
+
+	if (flat_map)
+		free(flat_map);
+	ft_free_texture_path(map);
+	i = 0;
+	while (map->strmap[i])
+	{
+		free (map->strmap[i]);
+		i++;
+	}	
+	free(map->strmap);
+	return (0);
+}
+
 void	ft_free_2D_array(int heigth, int width, int **tab)
 {
 	(void)width;
@@ -40,15 +68,19 @@ void	ft_free_2D_array(int heigth, int width, int **tab)
 	free(tab);
 }
 
-// void	ft_freemap(t_map map)
-// {
-// 	free(map.map_name);
-// 	if (map.map)
-// 		ft_freedstr(map.map);
-// 	if (map.floor)
-// 		free(map.floor);
-// 	if (map.ceiling)
-// 	free(map.ceiling);
-// 	if (map)
-// 	free(map);
-// }
+
+int	ft_freemap(t_map *map)
+{
+	int	i;
+
+	i = 0;
+	ft_free_texture_path(map);
+	ft_freedstr(map->strmap);
+	while (i < map->height)
+	{
+		free(map->map[i]);
+		i++;
+	}
+	free(map->map);
+	return (0);
+}

@@ -6,7 +6,7 @@
 /*   By: mdegraeu <mdegraeu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 12:20:09 by mdegraeu          #+#    #+#             */
-/*   Updated: 2022/10/07 16:09:32 by mdegraeu         ###   ########.fr       */
+/*   Updated: 2022/10/10 17:06:56 by mdegraeu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,8 +127,26 @@ void	ft_printmap(char **map);
 //ADD
 // void	ft_freemap(t_map map);
 int		ft_return(char *str);
+int		ft_free_init(t_map *map, char *flat_map);
+void	ft_free_texture_path(t_map *map);
+int		ft_freemap(t_map *map);
 
 //INIT
+int		ft_check_rgb_val(int *tab);
+int		ft_check_path(char *str);
+void	ft_chooseparam(t_map *map, char *flat_map, char *str);
+char	*ft_get_path(char *str);
+char	*ft_preatoi(char *flat_map);
+char	*ft_cpyline(char *flat_map);
+int		ft_length_path(char *str);
+void	ft_take_rgb_ceiling(t_map *map, char *flat_map, int x);
+void	ft_take_rgb_floor(t_map *map, char *flat_map, int x);
+void	ft_take_texture(t_map *map, char *flat_map, int x);
+int		ft_mapsize(char *flat_map, int x);
+int		ft_check_closed(char **map);
+int		ft_check_char(char **map);
+int		ft_check_extension(char *path, char *ext);
+char	*ft_getflat(int fd);
 int		ft_setparams(t_map *map, char *flat_map);
 int		ft_setmap(t_map *map, char *flat_map, int x);
 int		ft_to_map(char *flat_map, int x);
@@ -140,7 +158,7 @@ int		ft_parsing(t_data *data);
 int		ft_recursive(char **map, int i, int j);
 int		ft_colpos(char **map);
 int		ft_linepos(char **map);
-int		ft_char_list(char c);
+int		ft_clist(char c);
 
 int	ft_coord_check(char **map);
 

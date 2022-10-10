@@ -6,7 +6,7 @@
 /*   By: mdegraeu <mdegraeu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 11:26:54 by mdegraeu          #+#    #+#             */
-/*   Updated: 2022/10/10 10:36:53 by mdegraeu         ###   ########.fr       */
+/*   Updated: 2022/10/10 17:12:44 by mdegraeu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ void	ft_imap(t_map *map)
 	int	j;
 
 	i = 0;
-	map->height = ft_countline(map->strmap);
 	map->map = malloc(sizeof(int *) * map->height);
 	if (!map->map)
 		return ;
