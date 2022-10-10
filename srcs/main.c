@@ -97,6 +97,7 @@ int main(int ac, char **av)
 	if (!ft_parsing(&data))
 		return (ft_return("====parsing===="));
 	ft_printmapstruct(data.data_map);
+
 	// NOTE Mlx de merde
 	// REVIEW leaks sur mon mac (Luca)
 	data.data_mlx.mlx = mlx_init();
@@ -112,11 +113,6 @@ int main(int ac, char **av)
 	data.angle = 0;
 	data.dir.x = cos(0);
 	data.dir.y = sin(0);
-
-	// NOTE	Data map
-	data.data_map.height = MAP_HEIGHT;
-	data.data_map.width= MAP_WIDHT;
-	// ft_init_map(&data.data_map);
 
 	// NOTE	Init texture
 	ft_init_tex(&data);

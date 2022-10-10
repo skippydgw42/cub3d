@@ -6,7 +6,7 @@
 /*   By: mdegraeu <mdegraeu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:04:02 by mdegraeu          #+#    #+#             */
-/*   Updated: 2022/10/07 15:46:58 by mdegraeu         ###   ########.fr       */
+/*   Updated: 2022/10/10 10:29:14 by mdegraeu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	ft_printmapstruct(t_map map)
 	printf("height:%d | max length:%d\n", map.height, map.width);
 	for (int i = 0; i < map.height; i++)
 	{
-		for (int j = 0; map.map[i][j] > -1; j++)
+		for (int j = 0; j < map.width; j++)
 		{
 			printf("%d", map.map[i][j]);
 		}
