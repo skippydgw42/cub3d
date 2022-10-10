@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cube.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdegraeu <mdegraeu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ltrinchi <ltrinchi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 12:20:09 by mdegraeu          #+#    #+#             */
-/*   Updated: 2022/10/07 16:09:32 by mdegraeu         ###   ########.fr       */
+/*   Updated: 2022/10/10 17:06:33 by ltrinchi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,15 +151,15 @@ void	ft_draw_ceiling(t_data *data, int color);
 void	ft_draw_floor(t_data *data, int color);
 
 // free
-void	ft_free_2D_array(int heigth, int width, int **tab);
+void	ft_free_array(int size, int **tab);
 
 // minimap
-void	ft_draw_square(t_data *data, int pos_x, int pos_y, int color, int size);
 void	ft_draw_map(t_data *data);
-void	ft_draw_lines(t_data *data);
+void	ft_draw_fov(t_data *data, int color);
+int		ft_check_map(t_data *data, int x, int y);
 
 // DDA_algo
-int		ft_check_wall(double x, double y, t_data *data, int opt);
+int		ft_check_wall(t_coord coord, t_data *data, int opt);
 double	ft_length(t_data *data);
 
 // Raycasting

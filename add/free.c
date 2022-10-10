@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdegraeu <mdegraeu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ltrinchi <ltrinchi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 11:49:13 by mdegraeu          #+#    #+#             */
-/*   Updated: 2022/10/07 14:52:59 by mdegraeu         ###   ########.fr       */
+/*   Updated: 2022/10/10 11:42:33 by ltrinchi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,12 @@ void	ft_freedstr(char **str)
 	free(str);
 }
 
-void	ft_free_2D_array(int heigth, int width, int **tab)
+void	ft_free_array(int size, int **tab)
 {
-	(void)width;
-	(void)tab;
 	int	y;
 
 	y = 0;
-	while (y < heigth)
+	while (y < size)
 	{
 		free(tab[y]);
 		y++;

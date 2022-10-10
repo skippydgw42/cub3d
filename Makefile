@@ -6,7 +6,7 @@
 #    By: ltrinchi <ltrinchi@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/13 15:44:05 by ltrinchi          #+#    #+#              #
-#    Updated: 2022/10/10 10:38:19 by ltrinchi         ###   ########lyon.fr    #
+#    Updated: 2022/10/10 17:02:47 by ltrinchi         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,10 +32,13 @@ ADD_WITHOUT_PATH = \
 
 ALGO_WITHOUT_PATH =	\
 					DDA_algo.c \
-					raycasting.c
+					raycasting.c \
+					check_wall.c
 
 BONUS_WITHOUT_PATH = \
-					minimap.c
+					minimap.c \
+					fov.c \
+					check_mini_map.c
 
 					
 
