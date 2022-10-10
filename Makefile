@@ -6,7 +6,7 @@
 #    By: mdegraeu <mdegraeu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/13 15:44:05 by ltrinchi          #+#    #+#              #
-#    Updated: 2022/10/10 17:05:16 by mdegraeu         ###   ########.fr        #
+#    Updated: 2022/10/10 17:19:49 by mdegraeu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,10 +35,13 @@ ADD_WITHOUT_PATH = \
 
 ALGO_WITHOUT_PATH =	\
 					DDA_algo.c \
-					raycasting.c
+					raycasting.c \
+					check_wall.c
 
 BONUS_WITHOUT_PATH = \
-					minimap.c
+					minimap.c \
+					fov.c \
+					check_mini_map.c
 
 					
 

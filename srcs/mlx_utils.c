@@ -16,7 +16,7 @@ int		ft_close_window(void *param)
 {
 	t_data	*data;
 	data = (t_data *)param;
-	ft_free_2D_array(data->data_map.height, data->data_map.width, data->data_map.map);
+	ft_free_array(data->data_map.height, data->data_map.map);
 	exit(0);
 }
 

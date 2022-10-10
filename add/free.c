@@ -6,7 +6,7 @@
 /*   By: mdegraeu <mdegraeu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 11:49:13 by mdegraeu          #+#    #+#             */
-/*   Updated: 2022/10/10 16:37:46 by mdegraeu         ###   ########.fr       */
+/*   Updated: 2022/10/10 17:19:38 by mdegraeu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,14 +53,12 @@ int	ft_free_init(t_map *map, char *flat_map)
 	return (0);
 }
 
-void	ft_free_2D_array(int heigth, int width, int **tab)
+void	ft_free_2D_array(int size, int **tab)
 {
-	(void)width;
-	(void)tab;
 	int	y;
 
 	y = 0;
-	while (y < heigth)
+	while (y < size)
 	{
 		free(tab[y]);
 		y++;
