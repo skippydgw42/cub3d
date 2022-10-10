@@ -45,7 +45,7 @@ void	ft_move(t_data *data, int keycode)
 	if (!data->data_map.map[(int)(data->pos.y + data->dir.y)][(int)data->pos.x])
 		data->pos.y += data->dir.y;
 
-	if (keycode == DOWN)
+	if (keycode == DOWN || keycode == S)
 		data->angle -= M_PI;
 }
 
