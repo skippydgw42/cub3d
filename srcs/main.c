@@ -6,7 +6,7 @@
 /*   By: mdegraeu <mdegraeu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 13:56:05 by ltrinchi          #+#    #+#             */
-/*   Updated: 2022/10/11 15:17:57 by mdegraeu         ###   ########.fr       */
+/*   Updated: 2022/10/11 15:18:59 by mdegraeu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,6 @@ int	main(int ac, char **av)
 		return (ft_return("====init===="));
 	if (!ft_parsing(&data))
 		return (ft_return("====parsing===="));
-	// ft_printmapstruct(data.data_map);
-	printf("%d\n", data.data_map.floor[2]);
 	data.data_mlx.mlx = mlx_init();
 	data.data_mlx.window = mlx_new_window(data.data_mlx.mlx, WIDTH_WINDOW,
 			HEIGHT_WINDOW, data.data_map.map_name);

@@ -6,7 +6,7 @@
 /*   By: ltrinchi <ltrinchi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 15:05:12 by ltrinchi          #+#    #+#             */
-/*   Updated: 2022/10/11 13:51:11 by ltrinchi         ###   ########lyon.fr   */
+/*   Updated: 2022/10/11 15:09:56 by ltrinchi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,24 +34,19 @@ static void	ft_draw_square(t_data *data, t_coord coord, int color)
 static void	ft_draw_wall_map(t_data *data, int color)
 {
 	t_coord	coord;
-	t_coord	shift;
 
-	coord.x = 0;
-	shift.x = fmod(data->pos.x, 1) * -1;
+	coord.x = fmod(data->pos.x, 1) * -1;
 	while (coord.x <= SIZE_MINI_MAP)
 	{
-		coord.y = 0;
-		shift.y = fmod(data->pos.y, 1) * -1;
+		coord.y = fmod(data->pos.y, 1) * -1;
 		while (coord.y <= SIZE_MINI_MAP)
 		{
 			if (ft_check_map(data, coord.x + data->pos.x - (SIZE_MINI_MAP / 2),
 					coord.y + data->pos.y - (SIZE_MINI_MAP / 2)) == 1)
-				ft_draw_square(data, shift, color);
+				ft_draw_square(data, coord, color);
 			coord.y++;
-			shift.y += 1;
 		}
 		coord.x++;
-		shift.x += 1;
 	}
 }
 
