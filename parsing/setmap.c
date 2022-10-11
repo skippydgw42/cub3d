@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   setmap.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ltrinchi <ltrinchi@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: mdegraeu <mdegraeu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 16:29:24 by mdegraeu          #+#    #+#             */
-/*   Updated: 2022/10/11 10:10:19 by ltrinchi         ###   ########lyon.fr   */
+/*   Updated: 2022/10/11 10:37:00 by mdegraeu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_sublen(char *flat_map)
 
 	i = 0;
 	ct = 0;
-	while (flat_map[i] != '\n')
+	while (flat_map[i] && flat_map[i] != '\n')
 	{
 		if (flat_map[i] >= 9 && flat_map[i] <= 13)
 			ct += 4;
@@ -49,11 +49,11 @@ void	ft_mapinstruct(t_map *map, char *flat_map, int x)
 	int	j;
 
 	i = 0;
-	while (i < map->height)
+	while (flat_map[x] && i < map->height)
 	{
 		map->strmap[i] = malloc(sizeof(char) * (ft_sublen(&flat_map[x]) + 1));
 		j = 0;
-		while (flat_map[x] != '\n')
+		while (flat_map[x] && flat_map[x] != '\n')
 		{
 			if (flat_map[x] >= 9 && flat_map[x] <= 13)
 				j += ft_tabcpy(&map->strmap[i][j]);
@@ -65,10 +65,8 @@ void	ft_mapinstruct(t_map *map, char *flat_map, int x)
 			x++;
 		}
 		map->strmap[i][j] = '\0';
-		// REVIEW C'est ici le SegV
-		while (flat_map[x] == '\n')
+		while (flat_map[x] && flat_map[x] == '\n')
 			x++;
-		// 
 		i++;
 	}
 	map->strmap[i] = 0;
