@@ -6,7 +6,7 @@
 /*   By: mdegraeu <mdegraeu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 16:56:58 by mdegraeu          #+#    #+#             */
-/*   Updated: 2022/10/11 12:08:40 by mdegraeu         ###   ########.fr       */
+/*   Updated: 2022/10/11 15:14:53 by mdegraeu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,25 +61,28 @@ int	*ft_floor_ceiling(char *flat_map)
 
 	i = 0;
 	j = 0;
-	f_or_c = malloc(sizeof(int) * 3);
-	while (flat_map[i] && flat_map[i] != '\n' && j < 3)
+	f_or_c = ft_set_forc();
+	while (flat_map[i] && j < 3)
 	{
 		while (flat_map[i] && (flat_map[i] < '0' || flat_map[i] > '9'))
 		{
-			if (flat_map[i] == '-')
+			if (flat_map[i] == '-' || flat_map[i] == '\n')
 				break ;
 			i++;
 		}
+		if (flat_map[i] == '\n')
+			return (f_or_c);
 		str = ft_preatoi(&flat_map[i]);
 		f_or_c[j] = ft_atoi(str);
-		free(str);
 		j++;
+		free(str);
 		while (flat_map[i] && (flat_map[i] >= '0' && flat_map[i] <= '9'))
 			i++;
 	}
 	return (f_or_c);
 }
 
+//==================================
 void	ft_take_rgb_floor(t_map *map, char *flat_map, int x)
 {
 	int	i;

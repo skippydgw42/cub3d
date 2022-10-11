@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cube.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ltrinchi <ltrinchi@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: mdegraeu <mdegraeu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 12:20:09 by mdegraeu          #+#    #+#             */
-/*   Updated: 2022/10/11 14:33:19 by ltrinchi         ###   ########lyon.fr   */
+/*   Updated: 2022/10/11 15:11:45 by mdegraeu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,6 +134,7 @@ void			ft_free_texture_path(t_map *map);
 int				ft_freemap(t_map *map);
 
 //INIT
+int				*ft_set_forc(void);
 int				ft_skipspaces(char *str);
 int				ft_check_rgb_val(int *tab);
 int				ft_check_path(char *str);

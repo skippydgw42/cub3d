@@ -8,9 +8,9 @@ SO./textures/eagle.xpm
 W        E ./textures/greystone.xpm
    E     A      ./textures/redbrick.xpm
 
-F 220,          100, -1
-C 225         ,30      ,            0
+F 220,          100, 0
+C 12 35 44 54
 
  11
-1NT1
+1N01
  11

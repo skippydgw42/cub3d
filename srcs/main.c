@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ltrinchi <ltrinchi@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: mdegraeu <mdegraeu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 13:56:05 by ltrinchi          #+#    #+#             */
-/*   Updated: 2022/10/11 14:33:28 by ltrinchi         ###   ########lyon.fr   */
+/*   Updated: 2022/10/11 15:17:57 by mdegraeu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@
 // 	printf("%s\n", map.map_name);
 // 	printf("=================\n");
 // 	printf("%s\n%s\n%s\n%s\n", map.no_texture, map.so_texture, map.we_texture,
-			// map.ea_texture);
+// 			map.ea_texture);
 // 	printf("\n======\n");
 // 	printf("FLOOR\n");
 // 	for (int x = 0; x < 3; x++)
@@ -65,6 +65,7 @@ int	main(int ac, char **av)
 		return (ft_return("====init===="));
 	if (!ft_parsing(&data))
 		return (ft_return("====parsing===="));
+	// ft_printmapstruct(data.data_map);
 	printf("%d\n", data.data_map.floor[2]);
 	data.data_mlx.mlx = mlx_init();
 	data.data_mlx.window = mlx_new_window(data.data_mlx.mlx, WIDTH_WINDOW,

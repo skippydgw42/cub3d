@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ltrinchi <ltrinchi@student.42lyon.fr>      +#+  +:+       +#+         #
+#    By: mdegraeu <mdegraeu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/13 15:44:05 by ltrinchi          #+#    #+#              #
-#    Updated: 2022/10/11 14:33:14 by ltrinchi         ###   ########lyon.fr    #
+#    Updated: 2022/10/11 15:12:14 by mdegraeu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ PARSING_WITHOUT_PATH = \
 					setmap.c \
 					setparams.c \
 					set_params_utils.c \
+					set_floor_ceiling.c \
 					intmap.c \
 					get_things.c
 
