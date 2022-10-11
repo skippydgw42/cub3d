@@ -6,7 +6,7 @@
 /*   By: mdegraeu <mdegraeu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 16:49:41 by mdegraeu          #+#    #+#             */
-/*   Updated: 2022/10/10 17:09:21 by mdegraeu         ###   ########.fr       */
+/*   Updated: 2022/10/11 15:32:31 by mdegraeu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ int	ft_check_extension(char *path, char *ext)
 
 	i = ft_strlen(path) - 1;
 	j = ft_strlen(ext) - 1;
-	while (path[i] == ext[j])
+	while (path[i] == ext[j] && (i > 0 && j > 0))
 	{
 		i--;
 		j--;
 	}
-	if (ft_strlen(path) - i - 1 == ft_strlen(ext))
+	if (ft_strlen(path) - i == ft_strlen(ext))
 		return (1);
 	return (0);
 }
