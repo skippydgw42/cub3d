@@ -6,7 +6,7 @@
 /*   By: ltrinchi <ltrinchi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 13:56:05 by ltrinchi          #+#    #+#             */
-/*   Updated: 2022/10/11 14:18:49 by ltrinchi         ###   ########lyon.fr   */
+/*   Updated: 2022/10/11 14:33:28 by ltrinchi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,9 +61,7 @@ int	main(int ac, char **av)
 {
 	t_data	data;
 
-	if (ac != 2)
-		return (ft_return("====ac===="));
-	if (!ft_init_map(&data.data_map, av))
+	if (!ft_init_map(&data.data_map, av, ac))
 		return (ft_return("====init===="));
 	if (!ft_parsing(&data))
 		return (ft_return("====parsing===="));

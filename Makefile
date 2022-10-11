@@ -6,7 +6,7 @@
 #    By: ltrinchi <ltrinchi@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/13 15:44:05 by ltrinchi          #+#    #+#              #
-#    Updated: 2022/10/11 14:00:43 by ltrinchi         ###   ########lyon.fr    #
+#    Updated: 2022/10/11 14:33:14 by ltrinchi         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ SRCS_WITHOUT_PATH =	\
 PARSING_WITHOUT_PATH = \
 					init.c \
 					checking.c \
+					get_path.c \
 					get_infos.c \
 					parsing.c \
 					setmap.c \

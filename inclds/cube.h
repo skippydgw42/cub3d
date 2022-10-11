@@ -6,7 +6,7 @@
 /*   By: ltrinchi <ltrinchi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 12:20:09 by mdegraeu          #+#    #+#             */
-/*   Updated: 2022/10/11 14:01:15 by ltrinchi         ###   ########lyon.fr   */
+/*   Updated: 2022/10/11 14:33:19 by ltrinchi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,14 +128,16 @@ void			ft_printmap(char **map);
 //ADD
 // void	ft_freemap(t_map map);
 int				ft_return(char *str);
+int				ft_close_fd(int fd, int ret);
 int				ft_free_init(t_map *map, char *flat_map);
 void			ft_free_texture_path(t_map *map);
 int				ft_freemap(t_map *map);
 
 //INIT
+int				ft_skipspaces(char *str);
 int				ft_check_rgb_val(int *tab);
 int				ft_check_path(char *str);
-void			ft_chooseparam(t_map *map, char *flat_map, char *str);
+void			ft_chooseparam(t_map *map, char *flat_map, char *old_path);
 char			*ft_get_path(char *str);
 char			*ft_preatoi(char *flat_map);
 char			*ft_cpyline(char *flat_map);
@@ -156,7 +158,7 @@ void			ft_init_player(t_data *data);
 void			ft_init_tex(t_data *data);
 
 //PARSING
-int				ft_init_map(t_map *map, char **av);
+int				ft_init_map(t_map *map, char **av, int ac);
 int				ft_parsing(t_data *data);
 int				ft_recursive(char **map, int i, int j);
 int				ft_colpos(char **map);
