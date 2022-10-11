@@ -1,22 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_mini_map.c                                   :+:      :+:    :+:   */
+/*   rgb.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ltrinchi <ltrinchi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/10 17:02:20 by ltrinchi          #+#    #+#             */
-/*   Updated: 2022/10/11 14:07:31 by ltrinchi         ###   ########lyon.fr   */
+/*   Created: 2022/10/11 13:46:24 by ltrinchi          #+#    #+#             */
+/*   Updated: 2022/10/11 13:46:40 by ltrinchi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inclds/cube.h"
 
-int	ft_check_map(t_data *data, int x, int y)
+int	ft_rgb(unsigned char red, unsigned char green, unsigned char blue)
 {
-	if (x <= 0 || y <= 0)
-		return (EXIT_FAILURE);
-	if (x >= data->data_map.width || y >= data->data_map.height)
-		return (EXIT_FAILURE);
-	return (data->data_map.map[y][x]);
+	return ((red * 256 * 256) + (green * 256) + blue);
 }
