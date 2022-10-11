@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ltrinchi <ltrinchi@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: mdegraeu <mdegraeu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 11:49:13 by mdegraeu          #+#    #+#             */
-/*   Updated: 2022/10/11 10:12:53 by ltrinchi         ###   ########lyon.fr   */
+/*   Updated: 2022/10/11 14:36:23 by mdegraeu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,15 @@ int	ft_free_init(t_map *map, char *flat_map)
 		free(flat_map);
 	ft_free_texture_path(map);
 	i = 0;
-	while (map->strmap[i])
+	if (map->strmap)
 	{
-		free(map->strmap[i]);
-		i++;
+		while (map->strmap[i])
+		{
+			free(map->strmap[i]);
+			i++;
+		}
+		free(map->strmap);
 	}
-	free(map->strmap);
 	return (0);
 }
 

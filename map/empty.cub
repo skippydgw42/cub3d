@@ -1,20 +1,16 @@
+NO ./path_to_no_texture
+SO ./path_to_so_texture
+WE ./path_to_we_texture
+EA ./path_to_ea_texture
 
+    NO ./textures/wood.xpm
+SO./textures/eagle.xpm
+W        E ./textures/greystone.xpm
+   E     A      ./textures/redbrick.xpm
 
+F 220,          100, -1
+C 225         ,30      ,            0
 
-
-
-
-
-
-
-1111111
-
-
-
-
-
-
-
-
-
-0000
+ 11
+1NT1
+ 11
