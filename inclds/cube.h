@@ -6,7 +6,7 @@
 /*   By: mdegraeu <mdegraeu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 12:20:09 by mdegraeu          #+#    #+#             */
-/*   Updated: 2022/10/11 12:06:26 by mdegraeu         ###   ########.fr       */
+/*   Updated: 2022/10/11 13:23:17 by mdegraeu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,6 +128,7 @@ void			ft_printmap(char **map);
 //ADD
 // void	ft_freemap(t_map map);
 int				ft_return(char *str);
+int				ft_close_fd(int fd, int ret);
 int				ft_free_init(t_map *map, char *flat_map);
 void			ft_free_texture_path(t_map *map);
 int				ft_freemap(t_map *map);
@@ -155,7 +156,7 @@ int				ft_to_map(char *flat_map, int x);
 void			ft_imap(t_map *map);
 
 //PARSING
-int				ft_init_map(t_map *map, char **av);
+int				ft_init_map(t_map *map, char **av, int ac);
 int				ft_parsing(t_data *data);
 int				ft_recursive(char **map, int i, int j);
 int				ft_colpos(char **map);

@@ -6,7 +6,7 @@
 /*   By: mdegraeu <mdegraeu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 12:55:23 by mdegraeu          #+#    #+#             */
-/*   Updated: 2022/10/11 11:03:33 by mdegraeu         ###   ########.fr       */
+/*   Updated: 2022/10/11 13:23:32 by mdegraeu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,31 +99,31 @@ int	ft_check_flat(char *flat_map)
 	return (ret);
 }
 
-int	ft_init_map(t_map *map, char **av)
+int	ft_init_map(t_map *map, char **av, int ac)
 {
 	int		fd;
 	int		x;
 	char	*flat_map;
 
 	fd = open(av[1], O_RDONLY);
-	if (fd < 1 || fd > 1024)
-		return (0);
+	if (ac != 2 || fd < 1 || fd > 1024)
+		return (ft_close_fd(fd, 0));
 	ft_t_mapstruct(map);
 	flat_map = ft_getflat(fd);
 	if (!flat_map)
-		return (0);
+		return (ft_close_fd(fd, 0));
 	if (!ft_check_flat(flat_map))
-		return (0);
+		return (ft_close_fd(fd, 0));
 	map->map_name = ft_strdup(av[1]);
 	x = ft_setparams(map, flat_map);
 	if ((size_t)x == ft_strlen(flat_map))
 	{
 		free(flat_map);
 		ft_free_texture_path(map);
-		return (0);
+		return (ft_close_fd(fd, 0));
 	}
 	if (!ft_setmap(map, flat_map, x))
 		return (ft_free_init(map, flat_map));
 	free(flat_map);
-	return (1);
+	return (ft_close_fd(fd, 1));
 }
