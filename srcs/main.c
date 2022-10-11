@@ -118,7 +118,7 @@ int main(int ac, char **av)
 		// ft_freemap(&data.data_map);
 		return (ft_return("====parsing===="));
 	}
-	// ft_printmapstruct(data.data_map);
+	ft_printmapstruct(data.data_map);
 	// NOTE Mlx de merde
 	data.data_mlx.mlx = mlx_init();
 	data.data_mlx.window = mlx_new_window(data.data_mlx.mlx, WIDTH_WINDOW, HEIGHT_WINDOW, data.data_map.map_name);

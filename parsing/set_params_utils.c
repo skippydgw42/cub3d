@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set_params_utils.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ltrinchi <ltrinchi@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: mdegraeu <mdegraeu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 16:54:05 by mdegraeu          #+#    #+#             */
-/*   Updated: 2022/10/11 10:17:24 by ltrinchi         ###   ########lyon.fr   */
+/*   Updated: 2022/10/11 13:02:37 by mdegraeu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,40 +32,11 @@ int	ft_length_path(char *str)
 	return (ct);
 }
 
-//checkpath texture
 int	ft_check_path(char *str)
 {
 	if (access(str, R_OK) == -1)
 		return (0);
 	return (1);
-}
-
-//recuperer les textures des differents points cardinaux dans la struct t_map
-void	ft_chooseparam(t_map *map, char *flat_map, char *str)
-{
-	char	*path;
-
-	path = strdup(str);
-	if (flat_map[0] == 'N' && flat_map[1] == 'O')
-	{
-		map->no = 1;
-		map->no_texture = path;
-	}
-	else if (flat_map[0] == 'S' && flat_map[1] == 'O')
-	{
-		map->so = 1;
-		map->so_texture = path;
-	}
-	else if (flat_map[0] == 'W' && flat_map[1] == 'E')
-	{
-		map->we = 1;
-		map->we_texture = path;
-	}
-	else if (flat_map[0] == 'E' && flat_map[1] == 'A')
-	{
-		map->ea = 1;
-		map->ea_texture = path;
-	}
 }
 
 //copier une ligne du fichier d'entree

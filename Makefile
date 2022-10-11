@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ltrinchi <ltrinchi@student.42lyon.fr>      +#+  +:+       +#+         #
+#    By: mdegraeu <mdegraeu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/13 15:44:05 by ltrinchi          #+#    #+#              #
-#    Updated: 2022/10/11 10:00:58 by ltrinchi         ###   ########lyon.fr    #
+#    Updated: 2022/10/11 11:58:58 by mdegraeu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ SRCS_WITHOUT_PATH =	\
 PARSING_WITHOUT_PATH = \
 					init.c \
 					checking.c \
+					get_path.c \
 					get_infos.c \
 					parsing.c \
 					setmap.c \

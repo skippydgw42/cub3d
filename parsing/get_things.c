@@ -6,7 +6,7 @@
 /*   By: mdegraeu <mdegraeu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 16:47:45 by mdegraeu          #+#    #+#             */
-/*   Updated: 2022/10/10 17:08:17 by mdegraeu         ###   ########.fr       */
+/*   Updated: 2022/10/11 11:58:45 by mdegraeu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,33 +51,14 @@ int	ft_mapsize(char *flat_map, int x)
 	return (ct);
 }
 
-char	*ft_get_path(char *str)
+int	ft_skipspaces(char *str)
 {
-	int		i;
-	int		j;
-	char	*dst;
+	int	i;
 
 	i = 0;
-	dst = malloc(sizeof(char) * (ft_length_path(str) + 1));
-	if (!dst)
-		return (NULL);
-	j = 0;
 	while (str[i] && (str[i] == 32 || (str[i] >= 9 && str[i] <= 13)))
 		i++;
-	while (str[i] && (ft_clist(str[i]) == 2 || str[i] == 'O' || str[i] == 'A'))
-		i++;
-	while (str[i])
-	{
-		if (str[i] != 32 && (str[i] < 9 || str[i] > 13))
-		{
-			dst[j] = str[i];
-			j++;
-		}
-		i++;
-	}
-	dst[j] = '\0';
-	free(str);
-	return (dst);
+	return (i);
 }
 
 int	ft_linepos(char **map)
