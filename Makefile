@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mdegraeu <mdegraeu@student.42.fr>          +#+  +:+       +#+         #
+#    By: ltrinchi <ltrinchi@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/13 15:44:05 by ltrinchi          #+#    #+#              #
-#    Updated: 2022/10/10 17:19:49 by mdegraeu         ###   ########.fr        #
+#    Updated: 2022/10/11 10:00:58 by ltrinchi         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -83,7 +83,7 @@ HEADER = $(addprefix $(PATH_TO_HEADER), $(HEADER_WITHOUT_PATH))
 
 	######### COMMANDS ###########
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 CFLAGS_MLX = -framework OpenGL -framework AppKit
 RM = rm -rf
 	################################
@@ -111,7 +111,7 @@ WHITE       = \033[1;49;97m
 
 
 all: rsc $(PATH_TO_OBJS) $(NAME)
-	printf "$(GREEN)✅ $(NAME) is up to date$(WHITE) 👏\n"  
+	printf "\n$(GREEN)✅ $(NAME) is up to date$(WHITE) 👏\n"  
 
 rsc:
 	make -C $(PATH_TO_LIBFT)
@@ -141,7 +141,7 @@ $(OBJS_ALGO):$(PATH_TO_OBJS)%.o	: $(PATH_TO_ALGO)%.c Makefile $(HEADER) $(LIBFT_
 	$(CC) $(CFLAGS) -c $< -o $@ 
 
 $(OBJS_BONUS):$(PATH_TO_OBJS)%.o	: $(PATH_TO_BONUS)%.c Makefile $(HEADER) $(LIBFT_A)
-	printf "\033[2K\r$(YELLOW)⏳ Compiling:$(WHITE) $< 🤞\n"
+	printf "\033[2K\r$(YELLOW)⏳ Compiling:$(WHITE) $< 🤞"
 	$(CC) $(CFLAGS) -c $< -o $@ 
 
 $(NAME): $(OBJS)

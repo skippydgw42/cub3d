@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   setmap.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdegraeu <mdegraeu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ltrinchi <ltrinchi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 16:29:24 by mdegraeu          #+#    #+#             */
-/*   Updated: 2022/10/10 17:15:43 by mdegraeu         ###   ########.fr       */
+/*   Updated: 2022/10/11 10:10:19 by ltrinchi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,10 @@ void	ft_mapinstruct(t_map *map, char *flat_map, int x)
 			x++;
 		}
 		map->strmap[i][j] = '\0';
+		// REVIEW C'est ici le SegV
 		while (flat_map[x] == '\n')
 			x++;
+		// 
 		i++;
 	}
 	map->strmap[i] = 0;
