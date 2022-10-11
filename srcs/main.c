@@ -70,10 +70,10 @@ void	my_mlx_init_xpm(t_img_mlx *texture, t_mlx *data_mlx, char *path_to_file)
 
 void	ft_init_tex(t_data *data)
 {
-	my_mlx_init_xpm(&data->data_tex.NO, &data->data_mlx, data->data_map.no_texture);
-	my_mlx_init_xpm(&data->data_tex.SO, &data->data_mlx, data->data_map.so_texture);
-	my_mlx_init_xpm(&data->data_tex.WE, &data->data_mlx, data->data_map.we_texture);
-	my_mlx_init_xpm(&data->data_tex.EA, &data->data_mlx, data->data_map.ea_texture);
+	my_mlx_init_xpm(&data->data_tex.no, &data->data_mlx, data->data_map.no_texture);
+	my_mlx_init_xpm(&data->data_tex.so, &data->data_mlx, data->data_map.so_texture);
+	my_mlx_init_xpm(&data->data_tex.we, &data->data_mlx, data->data_map.we_texture);
+	my_mlx_init_xpm(&data->data_tex.ea, &data->data_mlx, data->data_map.ea_texture);
 }
 
 unsigned int	my_mlx_pixel_get_color(t_img_mlx *data, int x, int y)

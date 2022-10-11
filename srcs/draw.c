@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdegraeu <mdegraeu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ltrinchi <ltrinchi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 13:09:40 by ltrinchi          #+#    #+#             */
-/*   Updated: 2022/10/07 15:54:56 by mdegraeu         ###   ########.fr       */
+/*   Updated: 2022/10/11 10:17:24 by ltrinchi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,13 @@ void ft_draw_wall(t_data *data, double length, int pos, int dir)
 		while (screen.y < data->data_tex.height + data->data_tex.verti_shift)
 		{
 			if (dir == NORTH)
-				ft_draw_wall_xpm(data, &data->data_tex.NO, screen, data->data_tex.SO.height / data->data_tex.height);
+				ft_draw_wall_xpm(data, &data->data_tex.no, screen, data->data_tex.so.height / data->data_tex.height);
 			else if (dir == EAST)
-				ft_draw_wall_xpm(data, &data->data_tex.EA, screen, data->data_tex.WE.height / data->data_tex.height);
+				ft_draw_wall_xpm(data, &data->data_tex.ea, screen, data->data_tex.we.height / data->data_tex.height);
 			else if (dir == WEST)
-				ft_draw_wall_xpm(data, &data->data_tex.WE, screen, data->data_tex.EA.height / data->data_tex.height);
+				ft_draw_wall_xpm(data, &data->data_tex.we, screen, data->data_tex.ea.height / data->data_tex.height);
 			else if (dir == SOUTH)
-				ft_draw_wall_xpm(data, &data->data_tex.SO, screen, data->data_tex.NO.height / data->data_tex.height);
+				ft_draw_wall_xpm(data, &data->data_tex.so, screen, data->data_tex.no.height / data->data_tex.height);
 			screen.y++;
 			if (screen.y > HEIGHT_WINDOW)
 				break;

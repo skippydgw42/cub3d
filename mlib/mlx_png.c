@@ -35,7 +35,7 @@ unsigned char magic[PNG_MAGIC_SIZE] = {137, 80, 78, 71, 13, 10, 26, 10};
 #define	ERR_DATA_FILTER	12
 char *(mipng_err[]) =
 {
-  "No error",
+  "no error",
   "Not enough size for magic",
   "Wrong magic",
   "Incomplete chunk structure",

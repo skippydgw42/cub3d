@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set_params_utils.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdegraeu <mdegraeu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ltrinchi <ltrinchi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 16:54:05 by mdegraeu          #+#    #+#             */
-/*   Updated: 2022/10/10 17:14:32 by mdegraeu         ###   ########.fr       */
+/*   Updated: 2022/10/11 10:17:24 by ltrinchi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 

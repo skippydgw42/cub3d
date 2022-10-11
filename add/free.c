@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdegraeu <mdegraeu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ltrinchi <ltrinchi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 11:49:13 by mdegraeu          #+#    #+#             */
-/*   Updated: 2022/10/10 17:39:48 by mdegraeu         ###   ########.fr       */
+/*   Updated: 2022/10/11 10:12:53 by ltrinchi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,9 @@ int	ft_free_init(t_map *map, char *flat_map)
 	i = 0;
 	while (map->strmap[i])
 	{
-		free (map->strmap[i]);
+		free(map->strmap[i]);
 		i++;
-	}	
+	}
 	free(map->strmap);
 	return (0);
 }
@@ -65,7 +65,6 @@ void	ft_free_array(int size, int **tab)
 	}
 	free(tab);
 }
-
 
 int	ft_freemap(t_map *map)
 {

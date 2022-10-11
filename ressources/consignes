@@ -41,16 +41,16 @@ Le programme affiche l image dans une fenêtre et respecte les règles suivantes
 • Pour chaque élement, le premier caractère est l identifiant (un ou deux caractères), 
 	suivi de toutes les informations spécifiques à l élément dans un ordre strict tel que :
 — texture nord : 
-	— identifiant : NO
+	— identifiant : no
 	— chemin vers la texture nord
 — South texture :
-	— identifiant : SO
+	— identifiant : so
 	— chemin vers la texture sud
 — West texture :
-	— identifiant : WE
+	— identifiant : we
 	— chemin vers la texture ouest
 — East texture :
-	— identifiant : EA
+	— identifiant : ea
 	— chemin vers la texture est
 — Couleur du sol :
 	— identifiant : F
