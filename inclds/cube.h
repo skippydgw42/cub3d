@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cube.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdegraeu <mdegraeu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ltrinchi <ltrinchi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 12:20:09 by mdegraeu          #+#    #+#             */
-/*   Updated: 2022/10/11 13:23:17 by mdegraeu         ###   ########.fr       */
+/*   Updated: 2022/10/11 14:33:19 by ltrinchi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -154,6 +154,8 @@ int				ft_setparams(t_map *map, char *flat_map);
 int				ft_setmap(t_map *map, char *flat_map, int x);
 int				ft_to_map(char *flat_map, int x);
 void			ft_imap(t_map *map);
+void			ft_init_player(t_data *data);
+void			ft_init_tex(t_data *data);
 
 //PARSING
 int				ft_init_map(t_map *map, char **av, int ac);

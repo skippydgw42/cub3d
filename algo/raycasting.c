@@ -6,7 +6,7 @@
 /*   By: ltrinchi <ltrinchi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 14:53:05 by ltrinchi          #+#    #+#             */
-/*   Updated: 2022/10/10 12:05:58 by ltrinchi         ###   ########lyon.fr   */
+/*   Updated: 2022/10/11 12:11:04 by ltrinchi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,10 @@ void	ft_raycasting(t_data *data)
 	int		i;
 
 	i = 0;
-	ft_draw_ceiling(data, ft_rgb(200, 200, 200));
-	ft_draw_floor(data, ft_rgb(125, 125, 125));
+	ft_draw_ceiling(data, ft_rgb(data->data_map.ceiling[0],
+			data->data_map.ceiling[1], data->data_map.ceiling[2]));
+	ft_draw_floor(data, ft_rgb(data->data_map.floor[0], data->data_map.floor[1],
+			data->data_map.floor[2]));
 	old_angle = data->angle;
 	data->angle -= DEGREE * (FOV / 2);
 	if (data->angle < 0)

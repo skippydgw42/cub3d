@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mdegraeu <mdegraeu@student.42.fr>          +#+  +:+       +#+         #
+#    By: ltrinchi <ltrinchi@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/13 15:44:05 by ltrinchi          #+#    #+#              #
-#    Updated: 2022/10/11 11:58:58 by mdegraeu         ###   ########.fr        #
+#    Updated: 2022/10/11 14:33:14 by ltrinchi         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,8 @@ NAME = cub3D
 SRCS_WITHOUT_PATH =	\
 					main.c \
 					mlx_utils.c \
-					draw.c
+					draw.c \
+					set.c
 
 
 PARSING_WITHOUT_PATH = \
@@ -32,7 +33,8 @@ PARSING_WITHOUT_PATH = \
 
 ADD_WITHOUT_PATH = \
 					free.c \
-					return.c
+					return.c \
+					rgb.c
 
 ALGO_WITHOUT_PATH =	\
 					DDA_algo.c \
@@ -84,7 +86,7 @@ HEADER = $(addprefix $(PATH_TO_HEADER), $(HEADER_WITHOUT_PATH))
 
 	######### COMMANDS ###########
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror
 CFLAGS_MLX = -framework OpenGL -framework AppKit
 RM = rm -rf
 	################################
