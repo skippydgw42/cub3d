@@ -6,7 +6,7 @@
 /*   By: ltrinchi <ltrinchi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 13:56:05 by ltrinchi          #+#    #+#             */
-/*   Updated: 2022/10/12 10:23:59 by ltrinchi         ###   ########lyon.fr   */
+/*   Updated: 2022/10/12 10:49:02 by ltrinchi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,9 @@ int	main(int ac, char **av)
 	t_data	data;
 
 	if (!ft_init_map(&data.data_map, av, ac))
-		return (ft_return("====init===="));
+		return (ft_return("Error"));
 	if (!ft_parsing(&data))
-		return (ft_return("====parsing===="));
+		return (ft_return("Error"));
 	data.data_mlx.mlx = mlx_init();
 	data.data_mlx.window = mlx_new_window(data.data_mlx.mlx, WIDTH_WINDOW,
 			HEIGHT_WINDOW, data.data_map.map_name);
