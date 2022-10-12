@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cube.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdegraeu <mdegraeu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ltrinchi <ltrinchi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 12:20:09 by mdegraeu          #+#    #+#             */
-/*   Updated: 2022/10/11 15:11:45 by mdegraeu         ###   ########.fr       */
+/*   Updated: 2022/10/12 11:48:57 by ltrinchi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ typedef struct s_texture
 }				t_texture;
 typedef struct s_map
 {
-	int			**map;
+	char			**map;
 	int			height;
 	int			width;
 	char		**strmap;
@@ -176,7 +176,7 @@ void			ft_draw_ceiling(t_data *data, int color);
 void			ft_draw_floor(t_data *data, int color);
 
 // free
-void			ft_free_array(int size, int **tab);
+void			ft_free_array(int size, char **tab);
 
 // minimap
 void			ft_draw_map(t_data *data);
