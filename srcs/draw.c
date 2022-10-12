@@ -6,7 +6,7 @@
 /*   By: ltrinchi <ltrinchi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 13:09:40 by ltrinchi          #+#    #+#             */
-/*   Updated: 2022/10/11 13:53:59 by ltrinchi         ###   ########lyon.fr   */
+/*   Updated: 2022/10/12 09:06:43 by ltrinchi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,11 +53,12 @@ void	ft_draw_wall(t_data *data, double length, int pos, int dir)
 		{
 			ft_choose_tex(data, screen, dir);
 			screen.y++;
-			if (screen.y > HEIGHT_WINDOW)
+			if (screen.y == HEIGHT_WINDOW)
 				break ;
 		}
-		my_mlx_pixel_put(&data->data_mlx.img, screen.x, screen.y, 0);
 		screen.x++;
+		if(screen.x == WIDTH_WINDOW)
+			break;
 	}
 }
 

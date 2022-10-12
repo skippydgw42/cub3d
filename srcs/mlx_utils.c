@@ -6,7 +6,7 @@
 /*   By: ltrinchi <ltrinchi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 13:41:10 by ltrinchi          #+#    #+#             */
-/*   Updated: 2022/10/11 13:41:38 by ltrinchi         ###   ########lyon.fr   */
+/*   Updated: 2022/10/12 09:07:10 by ltrinchi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	my_mlx_pixel_put(t_img_mlx *img, int x, int y, int color)
 {
 	char	*dst;
 
-	if (x < 0 || y < 0 || x > WIDTH_WINDOW || y > HEIGHT_WINDOW)
+	if (x < 0 || y < 0 || x >= WIDTH_WINDOW || y >= HEIGHT_WINDOW)
 		return ;
 	dst = img->addr + (y * img->line_length + x * (img->bits_per_pixel / 8));
 	*(unsigned int *)dst = color;
