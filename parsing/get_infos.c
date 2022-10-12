@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_infos.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdegraeu <mdegraeu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ltrinchi <ltrinchi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 16:56:58 by mdegraeu          #+#    #+#             */
-/*   Updated: 2022/10/11 15:14:53 by mdegraeu         ###   ########.fr       */
+/*   Updated: 2022/10/12 10:39:36 by ltrinchi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,7 @@ int	*ft_floor_ceiling(char *flat_map)
 		if (flat_map[i] == '\n')
 			return (f_or_c);
 		str = ft_preatoi(&flat_map[i]);
-		f_or_c[j] = ft_atoi(str);
-		j++;
+		f_or_c[j++] = ft_atoi(str);
 		free(str);
 		while (flat_map[i] && (flat_map[i] >= '0' && flat_map[i] <= '9'))
 			i++;
