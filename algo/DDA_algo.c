@@ -6,7 +6,7 @@
 /*   By: ltrinchi <ltrinchi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 14:50:09 by ltrinchi          #+#    #+#             */
-/*   Updated: 2022/10/10 15:03:51 by ltrinchi         ###   ########lyon.fr   */
+/*   Updated: 2022/10/12 09:42:13 by ltrinchi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static double	ft_horiz(t_data *data)
 		if (ft_check_wall(coord, data, HOR))
 			break ;
 		length++;
-		if (fabs(length) > data->data_map.width + 2)
+		if (fabs(length) > data->data_map.height)
 			break ;
 	}
 	return (fabs(length / sin(data->angle)));
@@ -64,7 +64,7 @@ static double	ft_verti(t_data *data)
 		if (ft_check_wall(coord, data, VER))
 			break ;
 		length++;
-		if (fabs(length) > data->data_map.height + 2)
+		if (fabs(length) > data->data_map.width)
 			break ;
 	}
 	return (fabs(length / cos(data->angle)));

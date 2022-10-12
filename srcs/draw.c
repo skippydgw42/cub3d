@@ -6,7 +6,7 @@
 /*   By: ltrinchi <ltrinchi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 13:09:40 by ltrinchi          #+#    #+#             */
-/*   Updated: 2022/10/12 09:06:43 by ltrinchi         ###   ########lyon.fr   */
+/*   Updated: 2022/10/12 10:23:25 by ltrinchi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,8 @@ void	ft_draw_wall(t_data *data, double length, int pos, int dir)
 				break ;
 		}
 		screen.x++;
-		if(screen.x == WIDTH_WINDOW)
-			break;
+		if (screen.x == WIDTH_WINDOW)
+			break ;
 	}
 }
 

@@ -3,59 +3,59 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdegraeu <mdegraeu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ltrinchi <ltrinchi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 13:56:05 by ltrinchi          #+#    #+#             */
-/*   Updated: 2022/10/11 15:26:00 by mdegraeu         ###   ########.fr       */
+/*   Updated: 2022/10/12 10:23:59 by ltrinchi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inclds/cube.h"
 
-void	ft_printmap(char **map)
-{
-	int	i;
+// void	ft_printmap(char **map)
+// {
+// 	int	i;
 
-	i = 0;
-	while (map[i])
-	{
-		printf("%s\n", map[i]);
-		i++;
-	}
-}
+// 	i = 0;
+// 	while (map[i])
+// 	{
+// 		printf("%s\n", map[i]);
+// 		i++;
+// 	}
+// }
 
-void	ft_printmapstruct(t_map map)
-{
-	printf("=================\n");
-	printf("%s\n", map.map_name);
-	printf("=================\n");
-	printf("%s\n%s\n%s\n%s\n", map.no_texture, map.so_texture, map.we_texture,
-			map.ea_texture);
-	printf("\n======\n");
-	printf("FLOOR\n");
-	for (int x = 0; x < 3; x++)
-	{
-		printf("%d ", map.floor[x]);
-	}
-	printf("\n======\n");
-	printf("CEILING\n");
-	for (int x = 0; x < 3; x++)
-	{
-		printf("%d ", map.ceiling[x]);
-	}
-	printf("\n======\nMAP\n");
-	ft_printmap(map.strmap);
-	printf("\n======\nINT_MAP\n");
-	printf("height:%d | max length:%d\n", map.height, map.width);
-	for (int i = 0; i < map.height; i++)
-	{
-		for (int j = 0; j < map.width; j++)
-		{
-			printf("%d", map.map[i][j]);
-		}
-		printf("\n");
-	}
-}
+// void	ft_printmapstruct(t_map map)
+// {
+// 	printf("=================\n");
+// 	printf("%s\n", map.map_name);
+// 	printf("=================\n");
+// 	printf("%s\n%s\n%s\n%s\n", map.no_texture, map.so_texture, map.we_texture,
+// 			map.ea_texture);
+// 	printf("\n======\n");
+// 	printf("FLOOR\n");
+// 	for (int x = 0; x < 3; x++)
+// 	{
+// 		printf("%d ", map.floor[x]);
+// 	}
+// 	printf("\n======\n");
+// 	printf("CEILING\n");
+// 	for (int x = 0; x < 3; x++)
+// 	{
+// 		printf("%d ", map.ceiling[x]);
+// 	}
+// 	printf("\n======\nMAP\n");
+// 	ft_printmap(map.strmap);
+// 	printf("\n======\nINT_MAP\n");
+// 	printf("height:%d | max length:%d\n", map.height, map.width);
+// 	for (int i = 0; i < map.height; i++)
+// 	{
+// 		for (int j = 0; j < map.width; j++)
+// 		{
+// 			printf("%d", map.map[i][j]);
+// 		}
+// 		printf("\n");
+// 	}
+// }
 
 int	main(int ac, char **av)
 {
@@ -65,7 +65,6 @@ int	main(int ac, char **av)
 		return (ft_return("====init===="));
 	if (!ft_parsing(&data))
 		return (ft_return("====parsing===="));
-	// ft_printmapstruct(data.data_map);
 	data.data_mlx.mlx = mlx_init();
 	data.data_mlx.window = mlx_new_window(data.data_mlx.mlx, WIDTH_WINDOW,
 			HEIGHT_WINDOW, data.data_map.map_name);

@@ -22,4 +22,10 @@ METHODE DE TRAVAIL:
 	-texturer
 
 
-couleur sol plafond
+Parsing
+C 100l100l100 -> Passe le parsing
+C 255bite100bite100 -> Passe le parsing
+C 255bite100couille100
+F 200 200 200 Cheval blanc fjkajfkjakfjkajfkajkfj
+Ajouter des petits msg d'erreur au parsing pr + de precision
+
